@@ -86,6 +86,7 @@
 - Docker
 - LINE Messaging API
 - Twitter API
+- screenshotlayer API
 
 ### ■スケジュール
 1. 企画（アイデア企画・技術調査）：6/25〆切 　
