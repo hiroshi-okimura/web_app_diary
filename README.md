@@ -1,4 +1,4 @@
-# WebAppDialy
+# WebAppDiary
 
 ### ■サービス概要
 個人開発の参考としてUI/UXの情報収集を継続的に行いたい人のための、
