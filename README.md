@@ -106,7 +106,7 @@ erDiagram
 	string email
 	string crypted_password
 	string salt
-	string role
+	enum role
 	string reset_password_token
 	datetime reset_password_token_expires_at
 	datetime reset_password_email_sent_at
