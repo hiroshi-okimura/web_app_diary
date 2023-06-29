@@ -90,6 +90,70 @@
 ### ■画面遷移図
 https://www.figma.com/file/Vi640C6qKpIrX11KXXAEXu/WebAppDiary?type=design&t=DboXEke8o2cQxFRE-6
 
+### ■ER図
+```mermaid
+erDiagram
+  Users ||--o{ Reviews : has
+  Users ||--o{ Bookmarks : has
+  Users ||--o{ UserCharacters : has
+  Users ||--o{ Notifications : has
+  WebApps ||--o{ Reviews : has
+  WebApps ||--o{ Bookmarks : has
+  Characters ||--o{ UserCharacters : has
+  Users {
+	bigint id PK
+	string username
+	string email
+	string crypted_password
+	string salt
+	string role
+	string reset_password_token
+	datetime reset_password_token_expires_at
+	datetime reset_password_email_sent_at
+  }
+  WebApps {
+	bigint id PK
+	string name
+	string url
+	text ogp_description
+	string ogp_image
+	string screenshot
+	date offer_date
+	enum status
+  }
+  Reviews {
+	bigint id PK
+	int user_id FK
+	int webapp_id FK
+	text comment
+	int originality_score
+	int usability_score
+	int design_score
+	boolean is_counted
+  }
+  Bookmarks {
+	bigint id PK
+	int user_id FK
+	int webapp_id FK
+  }
+  Characters {
+	bigint id PK
+	string name
+	string image
+	int level
+  }
+  UserCharacters {
+	bigint id PK
+	int user_id FK
+	int character_id FK
+  }
+  Notifications {
+	bigint id PK
+	int user_id FK
+	datetime notify_time
+  }
+```
+
 ### ■スケジュール
 1. 企画（アイデア企画・技術調査）：6/25〆切 　
 2. 設計（README作成・画面遷移図作成・ER図作成）：6/30 〆切
