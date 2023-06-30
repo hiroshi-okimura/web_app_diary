@@ -94,10 +94,7 @@ https://www.figma.com/file/Vi640C6qKpIrX11KXXAEXu/WebAppDiary?type=design&t=DboX
 ```mermaid
 erDiagram
   Users ||--o{ Reviews : has
-  Users ||--o{ Bookmarks : has
-  Users ||--o{ Notifications : has
   WebApps ||--o{ Reviews : has
-  WebApps ||--o{ Bookmarks : has
   Characters ||--o{ Users : has
   Users {
 	bigint id PK
@@ -107,6 +104,7 @@ erDiagram
 	string crypted_password
 	string salt
 	enum role
+        datetime notify_time
 	string reset_password_token
 	datetime reset_password_token_expires_at
 	datetime reset_password_email_sent_at
@@ -130,22 +128,13 @@ erDiagram
 	int usability_score
 	int design_score
 	boolean is_counted
-  }
-  Bookmarks {
-	bigint id PK
-	int user_id FK
-	int webapp_id FK
+        boolean bookmark
   }
   Characters {
 	bigint id PK
 	string name
 	string image
 	int level
-  }
-  Notifications {
-	bigint id PK
-	int user_id FK
-	datetime notify_time
   }
 ```
 
