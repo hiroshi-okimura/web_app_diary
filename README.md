@@ -95,13 +95,13 @@ https://www.figma.com/file/Vi640C6qKpIrX11KXXAEXu/WebAppDiary?type=design&t=DboX
 erDiagram
   Users ||--o{ Reviews : has
   Users ||--o{ Bookmarks : has
-  Users ||--o{ UserCharacters : has
   Users ||--o{ Notifications : has
   WebApps ||--o{ Reviews : has
   WebApps ||--o{ Bookmarks : has
-  Characters ||--o{ UserCharacters : has
+  Characters ||--o{ Users : has
   Users {
 	bigint id PK
+        int character_id FK
 	string username
 	string email
 	string crypted_password
@@ -141,11 +141,6 @@ erDiagram
 	string name
 	string image
 	int level
-  }
-  UserCharacters {
-	bigint id PK
-	int user_id FK
-	int character_id FK
   }
   Notifications {
 	bigint id PK
