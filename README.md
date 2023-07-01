@@ -98,13 +98,13 @@ erDiagram
   Characters ||--o{ Users : has
   Users {
 	bigint id PK
-        int character_id FK
+    int character_id FK
 	string username
 	string email
 	string crypted_password
 	string salt
 	enum role
-        datetime notify_time
+    datetime notify_time
 	string reset_password_token
 	datetime reset_password_token_expires_at
 	datetime reset_password_email_sent_at
@@ -128,7 +128,7 @@ erDiagram
 	int usability_score
 	int design_score
 	boolean is_counted
-        boolean bookmark
+    boolean bookmark
   }
   Characters {
 	bigint id PK
