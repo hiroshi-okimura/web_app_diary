@@ -103,7 +103,7 @@ erDiagram
 	string email
 	string crypted_password
 	string salt
-	string role
+	enum role
 	datetime notify_time
 	string reset_password_token
 	datetime reset_password_token_expires_at
