@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: web_app_diary_production
-  username: web_app_diary
-  password: <%= ENV["WEB_APP_DIARY_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
