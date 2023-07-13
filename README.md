@@ -81,8 +81,8 @@
 - Heroku
 - Rails7
 - PostgreSQL
+- Hotwire
 - Tailwind CSS
-- Docker
 - LINE Messaging API
 - Twitter API
 - screenshotlayer API
