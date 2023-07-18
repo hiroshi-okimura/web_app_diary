@@ -1,0 +1,5 @@
+ja:
+  defaults:
+    login: "ログイン"
+    logout: "ログアウト"
+    register: "新規登録"
