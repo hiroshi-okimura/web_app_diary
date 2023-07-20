@@ -2,9 +2,19 @@ ja:
   activerecord:
     models:
       user: 'ユーザー'
+      web_app: 'Webアプリ'
     attributes:
       user:
         name: 'ユーザー名'
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
+      web_app:
+        site_name: 'Webアプリ名'
+        url: 'URL'
+        ogp_title: 'OGPタイトル'
+        ogp_description: 'OGP説明文'
+        ogp_image: 'OGP画像'
+        screenshot: 'スクリーンショット'
+        offer_date: '提供日'
+        
