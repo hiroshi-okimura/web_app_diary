@@ -85,3 +85,8 @@ end
 
 gem "devise"
 gem "devise-i18n"
+
+gem 'omniauth-line'
+gem 'omniauth-rails_csrf_protection'
+
+gem 'dotenv-rails'

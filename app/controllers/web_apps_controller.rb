@@ -1,9 +1,7 @@
 class WebAppsController < ApplicationController
-  def index
-  end
+  def index; end
 
-  def show
-  end
+  def show; end
 
   def todayapp
     @web_app = WebApp.first
