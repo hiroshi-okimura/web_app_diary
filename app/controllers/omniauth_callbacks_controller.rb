@@ -1,11 +1,10 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  
   def line
     basic_action
   end
 
   private
-  
+
   def basic_action
     @omniauth = request.env["omniauth.auth"]
     if @omniauth.present?
@@ -17,7 +16,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @profile.set_values(@omniauth)
       sign_in(:user, @profile)
     end
-    #ログイン後のflash messageとリダイレクト先を設定
+    # ログイン後のflash messageとリダイレクト先を設定
     flash[:notice] = "ログインしました"
     redirect_to todayapp_web_apps_path
   end
