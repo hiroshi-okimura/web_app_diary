@@ -1,0 +1,7 @@
+<h1><%= @web_app.site_name %></h1>
+<h1><%= image_tag @web_app.ogp_image %></h1>
+<%= link_to @web_app.url, target: "_blank", class: 'text-blue-600 mt-2 text-lg leading-8' do %>
+  <%= @web_app.url %>
+<% end %>
+<h1><%= @web_app.ogp_description %></h1>
+<button class="btn btn-outline btn-accent">記録</button>
