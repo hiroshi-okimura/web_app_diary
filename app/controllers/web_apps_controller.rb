@@ -1,7 +1,11 @@
 class WebAppsController < ApplicationController
-  def index; end
+  def index
+    @web_apps = WebApp.all
+  end
 
-  def show; end
+  def show
+    @web_app = WebApp.find(params[:id])
+  end
 
   def todayapp
     @web_app = WebApp.first
