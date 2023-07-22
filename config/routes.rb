@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     collection do
       get :todayapp
     end
+
+    resources :reviews, only: %i[create]
   end
 end
