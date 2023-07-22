@@ -4,7 +4,27 @@
   <%= @web_app.url %>
 <% end %>
 <h1><%= @web_app.ogp_description %></h1>
-<button class="btn btn-outline btn-accent">記録</button>
 <%= link_to "https://twitter.com/share?url=#{ request.url }&text=【今日のWebアプリ】%0a「#{ @web_app.site_name }」%0a #1日1アプリ%0a #1日1サービス%0a", target: '_blank' do %>
   <button class="btn btn-outline btn-info">twitter share</button>
+<% end %>
+<%= form_with model: [@web_app, Review.new], local: true do |f| %>
+  <div class="field">
+    <%= f.label :originality_score %>
+    <%= f.number_field :originality_score, in: 1..5 %>
+  </div>
+  <div class="field">
+    <%= f.label :usability_score %>
+    <%= f.number_field :usability_score, in: 1..5 %>
+  </div>
+  <div class="field">
+    <%= f.label :design_score %>
+    <%= f.number_field :design_score, in: 1..5 %>
+  </div>
+  <div class="field">
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+  </div>
+  <div class="actions">
+    <%= f.submit "記録", class: "btn btn-outline btn-accent" %>
+  </div>
 <% end %>
