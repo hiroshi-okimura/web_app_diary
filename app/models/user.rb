@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :reviews, dependent: :destroy
+
   def social_profile(provider)
     social_profiles.select { |sp| sp.provider == provider.to_s }.first
   end
