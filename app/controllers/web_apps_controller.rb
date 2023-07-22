@@ -1,5 +1,7 @@
 class WebAppsController < ApplicationController
-  def index; end
+  def index
+    @web_apps = WebApp.all
+  end
 
   def show; end
 
