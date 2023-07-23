@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      redirect_to web_app_path(@web_app), success: "レビューを更新しました"
+      redirect_to web_app_path(@web_app), notice: "レビューを更新しました"
     else
       redirect_to web_app_path(@web_app), danger: "レビューの更新に失敗しました"
     end
