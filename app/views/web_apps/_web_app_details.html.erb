@@ -26,7 +26,7 @@
       <div class="stat-value"><%= @review.comment %></div>
     </div>
   </div>
-  <%= link_to edit_web_app_review_path(@web_app) do %>
+  <%= link_to edit_web_app_review_path(@web_app, @review) do %>
     <button class="btn btn-outline btn-info">編集</button>
   <% end %>
 <% elsif user_signed_in? %>
