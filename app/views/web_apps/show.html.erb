@@ -1,9 +1,2 @@
-<h1><%= @web_app.site_name %></h1>
-<h1><%= image_tag @web_app.ogp_image %></h1>
-<%= link_to @web_app.url, target: "_blank", class: 'text-blue-600 mt-2 text-lg leading-8' do %>
-  <%= @web_app.url %>
-<% end %>
-<h1><%= @web_app.ogp_description %></h1>
-<%= link_to "https://twitter.com/share?url=#{ request.url }&text=【今日のWebアプリ】%0a「#{ @web_app.site_name }」%0a #1日1アプリ%0a #1日1サービス%0a", target: '_blank' do %>
-  <button class="btn btn-outline btn-info">twitter share</button>
-<% end %>
+<!-- app/views/web_apps/show.html.erb -->
+<%= render 'web_app_details' %>

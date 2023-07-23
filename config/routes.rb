@@ -10,6 +10,6 @@ Rails.application.routes.draw do
       get :todayapp
     end
 
-    resources :reviews, only: %i[create]
+    resources :reviews, only: %i[new create edit update]
   end
 end
