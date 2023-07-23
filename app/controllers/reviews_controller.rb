@@ -1,5 +1,10 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create]
+  before_action :authenticate_user!, only: %i[new create edit update]
+
+  def new
+    @web_app = WebApp.find(params[:web_app_id])
+    @review = Review.new
+  end
 
   def create
     @web_app = WebApp.find(params[:web_app_id])
@@ -9,6 +14,25 @@ class ReviewsController < ApplicationController
       redirect_to web_app_path(@web_app), success: "レビューを記録しました"
     else
       redirect_to web_app_path(@web_app), danger: "レビューの記録に失敗しました"
+    end
+  end
+
+  def edit
+    @web_app = WebApp.find(params[:web_app_id])
+    if user_signed_in?
+      @review = @web_app.reviews.find_by(user_id: current_user.id)
+    end
+  end
+
+  def update
+    @web_app = WebApp.find(params[:web_app_id])
+    if user_signed_in?
+      @review = @web_app.reviews.find_by(user_id: current_user.id)
+    end
+    if @review.update(review_params)
+      redirect_to web_app_path(@web_app), success: "レビューを更新しました"
+    else
+      redirect_to web_app_path(@web_app), danger: "レビューの更新に失敗しました"
     end
   end
 

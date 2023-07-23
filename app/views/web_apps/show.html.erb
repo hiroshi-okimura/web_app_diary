@@ -9,48 +9,28 @@
 <% end %>
 <% if @review.present? %>
   <div class="stats stats-vertical lg:stats-horizontal shadow">
-    
     <div class="stat">
       <div class="stat-title">オリジナリティ</div>
       <div class="stat-value"><%= @review.originality_score %></div>
     </div>
-    
     <div class="stat">
       <div class="stat-title">ユーザビリティ</div>
       <div class="stat-value"><%= @review.usability_score %></div>
     </div>
-    
     <div class="stat">
       <div class="stat-title">デザイン</div>
       <div class="stat-value"><%= @review.design_score %></div>
     </div>
-
     <div class="stat">
       <div class="stat-title">コメント</div>
       <div class="stat-value"><%= @review.comment %></div>
     </div>
-    
   </div>
+  <%= link_to edit_web_app_review_path(@web_app) do %>
+    <button class="btn btn-outline btn-info">編集</button>
+  <% end %>
 <% elsif user_signed_in? %>
-  <%= form_with model: [@web_app, Review.new], local: true do |f| %>
-    <div class="field">
-      <%= f.label :originality_score %>
-      <%= f.number_field :originality_score, in: 1..5 %>
-    </div>
-    <div class="field">
-      <%= f.label :usability_score %>
-      <%= f.number_field :usability_score, in: 1..5 %>
-    </div>
-    <div class="field">
-      <%= f.label :design_score %>
-      <%= f.number_field :design_score, in: 1..5 %>
-    </div>
-    <div class="field">
-      <%= f.label :comment %>
-      <%= f.text_area :comment %>
-    </div>
-    <div class="actions">
-      <%= f.submit "記録", class: "btn btn-outline btn-accent" %>
-    </div>
+  <%= link_to new_web_app_review_path(@web_app) do %>
+    <button class="btn btn-outline btn-info">記録</button>
   <% end %>
 <% end %>
