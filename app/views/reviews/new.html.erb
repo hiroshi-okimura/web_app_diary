@@ -1,21 +1,2 @@
-<%= form_with model: [@web_app, @review], local: true do |f| %>
-  <div class="field">
-    <%= f.label :originality_score %>
-    <%= f.number_field :originality_score, in: 1..5 %>
-  </div>
-  <div class="field">
-    <%= f.label :usability_score %>
-    <%= f.number_field :usability_score, in: 1..5 %>
-  </div>
-  <div class="field">
-    <%= f.label :design_score %>
-    <%= f.number_field :design_score, in: 1..5 %>
-  </div>
-  <div class="field">
-    <%= f.label :comment %>
-    <%= f.text_area :comment %>
-  </div>
-  <div class="actions">
-    <%= f.submit "記録", class: "btn btn-outline btn-accent" %>
-  </div>
-<% end %>
+<!-- app/views/reviews/new.html.erb -->
+<%= render 'form' %>
