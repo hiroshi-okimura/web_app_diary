@@ -84,7 +84,6 @@
 - Hotwire
 - Tailwind CSS
 - LINE Messaging API
-- Twitter API
 - screenshotlayer API
 
 ### ■画面遷移図
@@ -99,19 +98,20 @@ erDiagram
   Users {
 	bigint id PK
 	int character_id FK
-	string username
+	string name
 	string email
-	string crypted_password
-	string salt
+	string encrypted_password
 	enum role
 	datetime notify_time
 	string reset_password_token
-	datetime reset_password_token_expires_at
-	datetime reset_password_email_sent_at
+	datetime reset_password_sent_at
+	datetime remember_created_at
+	string provider
+	string uid
   }
   WebApps {
 	bigint id PK
-	string name
+	string site_name
 	string url
 	text ogp_description
 	string ogp_image
@@ -122,7 +122,7 @@ erDiagram
   Reviews {
 	bigint id PK
 	int user_id FK
-	int webapp_id FK
+	int web_app_id FK
 	text comment
 	int originality_score
 	int usability_score
