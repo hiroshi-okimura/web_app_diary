@@ -1,5 +1,6 @@
 class WebApp < ApplicationRecord
   has_many :reviews, dependent: :destroy
+  mount_uploader :screenshot, ScreenshotUploader
 
   validates :site_name, presence: true
   validates :url, presence: true, uniqueness: true

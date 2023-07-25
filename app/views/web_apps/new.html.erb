@@ -1,0 +1,33 @@
+<%= form_with model: @web_app, local: true do |f| %>
+  <div class="field">
+    <%= f.label :site_name %>
+    <%= f.text_field :site_name %>
+  </div>
+  <div class="field">
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :ogp_title %>
+    <%= f.text_field :ogp_title %>
+  </div>
+  <div class="field">
+    <%= f.label :ogp_description %>
+    <%= f.text_area :ogp_description %>
+  </div>
+  <div class="field">
+    <%= f.label :ogp_image %>
+    <%= f.text_field :ogp_image %>
+  </div>
+  <div class="field">
+    <%= f.label :screenshot %>
+    <%= f.file_field :screenshot %>
+  </div>
+  <div class="field">
+    <%= f.label :offer_date %>
+    <%= f.date_field :offer_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit "登録", class: "btn btn-outline btn-accent" %>
+  </div>
+<% end %>

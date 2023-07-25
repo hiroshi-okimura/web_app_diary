@@ -2,6 +2,20 @@ class WebAppsController < ApplicationController
   before_action :set_web_app, only: %i[show todayapp]
   before_action :set_review, only: %i[show todayapp], if: :user_signed_in?
 
+  def new
+    @web_app = WebApp.new
+  end
+
+  def create
+    @web_app = WebApp.new(web_app_params)
+    if @web_app.save
+      redirect_to web_app_path(@web_app), notice: "Webアプリを登録しました"
+    else
+      flash.now[:danger] = "Webアプリの登録に失敗しました"
+      render :new
+    end
+  end
+
   def index
     @web_apps = WebApp.all
   end
@@ -18,5 +32,9 @@ class WebAppsController < ApplicationController
 
   def set_review
     @review = @web_app.reviews.find_by(user_id: current_user.id)
+  end
+
+  def web_app_params
+    params.require(:web_app).permit(:site_name, :url, :ogp_title, :ogp_description, :ogp_image, :screenshot, :offer_date)
   end
 end

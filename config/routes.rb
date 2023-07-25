@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: "omniauth_callbacks"
   }
 
-  resources :web_apps, only: %i[index show] do
+  resources :web_apps, only: %i[new create index show] do
     collection do
       get :todayapp
     end
