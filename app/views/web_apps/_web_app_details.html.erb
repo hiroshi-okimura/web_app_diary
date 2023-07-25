@@ -4,7 +4,7 @@
   <%= @web_app.url %>
 <% end %>
 <h1><%= @web_app.ogp_description %></h1>
-<%= link_to "https://twitter.com/share?url=#{ request.url }&text=【今日のWebアプリ】%0a「#{ @web_app.site_name }」%0a #1日1アプリ%0a #1日1サービス%0a", target: '_blank' do %>
+<%= link_to "https://x.com/share?url=#{ request.url }&text=【今日のWebアプリ】%0a「#{ @web_app.site_name }」%0a #1日1アプリ%0a #1日1サービス%0a", target: '_blank' do %>
   <button class="btn btn-outline btn-info">twitter share</button>
 <% end %>
 <% if @review.present? %>
