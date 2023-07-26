@@ -8,6 +8,25 @@ class WebAppsController < ApplicationController
 
   def create
     @web_app = WebApp.new(web_app_params)
+
+    options = {
+      fullpage: 1, 
+      width: "", 
+      viewport: "", 
+      format: "", 
+      css_url: "", 
+      delay: 3, 
+      ttl: "", 
+      force: "", 
+      placeholder: "", 
+      user_agent: "", 
+      accept_lang: "", 
+      export: "" 
+    }
+
+    screenshot_url = ScreenshotService.screenshotlayer(@web_app.url, options)
+    @web_app.remote_screenshot_url = screenshot_url
+  
     if @web_app.save
       redirect_to web_app_path(@web_app), notice: "Webアプリを登録しました"
     else
