@@ -54,6 +54,6 @@ class WebAppsController < ApplicationController
   end
 
   def web_app_params
-    params.require(:web_app).permit(:site_name, :url, :ogp_title, :ogp_description, :ogp_image, :screenshot, :offer_date)
+    params.require(:web_app).permit(:site_name, :url, :ogp_title, :ogp_description, :ogp_image, :offer_date)
   end
 end
