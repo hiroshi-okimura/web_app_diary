@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
     resources :reviews, only: %i[new create edit update]
   end
+
+  resource :mypage, only: %i[show]
 end
