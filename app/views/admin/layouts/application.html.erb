@@ -1,0 +1,18 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta lang='ja'>
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+  <div class="content-wrapper">
+    <%= render 'shared/flash_message' %>
+    <%= yield %>
+  </div>
+</body>
+</html>
