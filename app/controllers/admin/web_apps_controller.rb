@@ -29,7 +29,7 @@ class Admin::WebAppsController < Admin::BaseController
     @web_app.remote_screenshot_url = screenshot_url
   
     if @web_app.save
-      redirect_to web_app_path(@web_app), notice: "Webアプリを登録しました"
+      redirect_to admin_web_apps_path, notice: "Webアプリを登録しました"
     else
       flash.now[:danger] = "Webアプリの登録に失敗しました"
       render :new
