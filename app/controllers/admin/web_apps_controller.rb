@@ -59,4 +59,10 @@ class Admin::WebAppsController < Admin::BaseController
     @web_app.destroy
     redirect_to admin_web_apps_path, notice: "Webアプリを削除しました"
   end
+
+  private
+
+  def web_app_params
+    params.require(:web_app).permit(:site_name, :url, :ogp_title, :ogp_description, :ogp_image, :offer_date)
+  end
 end
