@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   end
 
   resource :mypage, only: %i[show]
+
+  namespace :admin do
+    root to: "dashboards#index"
+  end
 end

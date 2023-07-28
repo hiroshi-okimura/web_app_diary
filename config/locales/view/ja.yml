@@ -6,3 +6,5 @@ ja:
     todayapp: "今日のWebアプリ"
     appindex: "Webアプリ一覧"
     mypage: "マイページ"
+    message: 
+      not_authorized: '権限がありません'
