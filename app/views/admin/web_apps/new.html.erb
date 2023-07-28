@@ -1,4 +1,4 @@
-<%= form_with model: @web_app, local: true do |f| %>
+<%= form_with model: @web_app, url: admin_web_apps_path, local: true do |f| %>
   <div class="field">
     <%= f.label :site_name %>
     <%= f.text_field :site_name %>

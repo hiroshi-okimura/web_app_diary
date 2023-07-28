@@ -1,0 +1,62 @@
+class Admin::WebAppsController < Admin::BaseController
+  def index
+    @web_apps = WebApp.all
+  end
+
+  def new
+    @web_app = WebApp.new
+  end
+
+  def create
+    @web_app = WebApp.new(web_app_params)
+
+    options = {
+      fullpage: 1, 
+      width: "", 
+      viewport: "", 
+      format: "", 
+      css_url: "", 
+      delay: 3, 
+      ttl: "", 
+      force: "", 
+      placeholder: "", 
+      user_agent: "", 
+      accept_lang: "", 
+      export: "" 
+    }
+
+    screenshot_url = ScreenshotService.screenshotlayer(@web_app.url, options)
+    @web_app.remote_screenshot_url = screenshot_url
+  
+    if @web_app.save
+      redirect_to web_app_path(@web_app), notice: "Webアプリを登録しました"
+    else
+      flash.now[:danger] = "Webアプリの登録に失敗しました"
+      render :new
+    end
+  end
+
+  def show
+    @web_app = WebApp.find(params[:id])
+  end
+
+  def edit
+    @web_app = WebApp.find(params[:id])
+  end
+
+  def update
+    @web_app = WebApp.find(params[:id])
+    if @web_app.update(web_app_params)
+      redirect_to web_app_path(@web_app), notice: "Webアプリを更新しました"
+    else
+      flash.now[:danger] = "Webアプリの更新に失敗しました"
+      render :edit
+    end
+  end
+
+  def destroy
+    @web_app = WebApp.find(params[:id])
+    @web_app.destroy
+    redirect_to admin_web_apps_path, notice: "Webアプリを削除しました"
+  end
+end
