@@ -32,7 +32,7 @@ class Admin::WebAppsController < Admin::BaseController
       redirect_to admin_web_apps_path, notice: "Webアプリを登録しました"
     else
       flash.now[:danger] = "Webアプリの登録に失敗しました"
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -57,7 +57,7 @@ class Admin::WebAppsController < Admin::BaseController
   def destroy
     @web_app = WebApp.find(params[:id])
     @web_app.destroy
-    redirect_to admin_web_apps_path, notice: "Webアプリを削除しました"
+    redirect_to admin_web_apps_path, status: :see_other, notice: "Webアプリを削除しました"
   end
 
   private

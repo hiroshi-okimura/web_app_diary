@@ -2,9 +2,18 @@ ja:
   defaults:
     login: "ログイン"
     logout: "ログアウト"
+    show: "詳細"
+    edit: "編集"
+    delete: "削除"
     register: "新規登録"
     todayapp: "今日のWebアプリ"
     appindex: "Webアプリ一覧"
     mypage: "マイページ"
     message: 
       not_authorized: '権限がありません'
+      delete_confirm: "削除しますか？"
+  admin:
+    web_apps:
+      show:
+        title: "Webアプリ詳細"
+        
