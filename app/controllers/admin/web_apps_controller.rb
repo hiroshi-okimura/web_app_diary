@@ -47,10 +47,10 @@ class Admin::WebAppsController < Admin::BaseController
   def update
     @web_app = WebApp.find(params[:id])
     if @web_app.update(web_app_params)
-      redirect_to web_app_path(@web_app), notice: "Webアプリを更新しました"
+      redirect_to admin_web_app_path(@web_app), notice: "Webアプリを更新しました"
     else
       flash.now[:danger] = "Webアプリの更新に失敗しました"
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

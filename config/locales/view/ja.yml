@@ -2,6 +2,8 @@ ja:
   defaults:
     login: "ログイン"
     logout: "ログアウト"
+    index: "一覧"
+    new: "作成"
     show: "詳細"
     edit: "編集"
     delete: "削除"
@@ -14,6 +16,8 @@ ja:
       delete_confirm: "削除しますか？"
   admin:
     web_apps:
+      index:
+        title: "Webアプリ一覧"
       show:
         title: "Webアプリ詳細"
         

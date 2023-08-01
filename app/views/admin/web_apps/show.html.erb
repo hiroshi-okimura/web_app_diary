@@ -3,6 +3,7 @@
     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <h1><%= t('.title') %></h1>
       <div class="text-right mb-3">
+        <%= link_to t('defaults.index'), admin_web_apps_path, class: 'btn btn-outline btn-accent' %>
         <%= link_to t('defaults.edit'), edit_admin_web_app_path(@web_app), class: 'btn btn-success' %>
         <%= link_to t('defaults.delete'), admin_web_app_path(@web_app), data: {
                     turbo_method: :delete,
