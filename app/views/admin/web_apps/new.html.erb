@@ -1,0 +1,29 @@
+<%= form_with model: @web_app, url: admin_web_apps_path, local: true, class: "max-w-lg mx-auto p-6 space-y-4" do |f| %>
+  <div class="field">
+    <%= f.label :site_name, class: "block text-sm font-medium text-gray-700" %>
+    <%= f.text_field :site_name, class: "mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+  </div>
+  <div class="field">
+    <%= f.label :url, class: "block text-sm font-medium text-gray-700" %>
+    <%= f.text_field :url, class: "mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+  </div>
+  <div class="field">
+    <%= f.label :ogp_title, class: "block text-sm font-medium text-gray-700" %>
+    <%= f.text_field :ogp_title, class: "mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+  </div>
+  <div class="field">
+    <%= f.label :ogp_description, class: "block text-sm font-medium text-gray-700" %>
+    <%= f.text_area :ogp_description, class: "mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+  </div>
+  <div class="field">
+    <%= f.label :ogp_image, class: "block text-sm font-medium text-gray-700" %>
+    <%= f.text_field :ogp_image, class: "mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+  </div>
+  <div class="field">
+    <%= f.label :offer_date, class: "block text-sm font-medium text-gray-700" %>
+    <%= f.date_field :offer_date, class: "mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "登録", class: "inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+  </div>
+<% end %>

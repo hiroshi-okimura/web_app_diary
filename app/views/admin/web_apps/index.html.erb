@@ -1,0 +1,24 @@
+<h1><%= t('.title') %></h1>
+<div class="text-right mb-3">
+<%= link_to t('defaults.new'), new_admin_web_app_path, class: 'btn btn-outline btn-accent' %>
+</div>
+<div class="overflow-x-auto">
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>アプリ名</th>
+        <th>URL</th>
+        <th>提供日</th>
+        <th>OGP概要</th>
+        <th>OGPイメージURL</th>
+        <th>スクリーンショット場所</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @web_apps %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,17 @@
+<tr>
+  <th><%= web_app.id %></th>
+  <td><%= web_app.site_name %></td>
+  <td><%= web_app.url %></td>
+  <td><%= web_app.offer_date %></td>
+  <td><%= web_app.ogp_description %></td>
+  <td><%= web_app.ogp_image %></td>
+  <td><%= web_app.screenshot.current_path %></td>
+  <td>
+    <%= link_to t('defaults.show'), admin_web_app_path(web_app), class: 'btn btn-info' %>
+    <%= link_to t('defaults.edit'), edit_admin_web_app_path(web_app), class: 'btn btn-success' %>
+    <%= link_to t('defaults.delete'), admin_web_app_path(web_app), data: {
+                turbo_method: :delete,
+                turbo_confirm: t('defaults.message.delete_confirm')
+    } , class: 'btn btn-error' %>
+  </td>
+</tr>
