@@ -13,7 +13,7 @@ class WebAppsController < ApplicationController
   private
 
   def set_web_app
-    @web_app = action_name == 'todayapp' ? WebApp.first : WebApp.find(params[:id])
+    @web_app = action_name == 'todayapp' ? WebApp.find_by(offer_date: Date.today) : WebApp.find(params[:id])
   end
 
   def set_review
