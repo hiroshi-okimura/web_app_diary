@@ -1,1 +1,78 @@
-<h1>Hello, Rails!</h1>
+<section class="text-gray-600 body-font py-24">
+  <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+    <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">#1日1アプリ
+        <br class="hidden lg:inline-block">継続的に体験しよう
+      </h1>
+      <p class="mb-8 leading-relaxed">
+        個人開発の参考として、UI/UXの情報収集を継続的に行いたい人のための<br>
+        1日1Webアプリ提供&記録サービスです</p>
+      <div class="flex justify-center">
+        <%= link_to "今日のWebアプリを見てみる", todayapp_web_apps_path, class: "inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg mr-4" %>
+      </div>
+    </div>
+    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+      <%= image_tag "top_logo.png", class: "object-cover object-center rounded" %>
+    </div>
+  </div>
+</section>
+
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-wrap w-full mb-10 flex-col items-center text-center">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">このアプリでできること（準備中）</h1>
+    </div>
+    <div class="flex flex-wrap -m-4">
+      <div class="md:w-1/2 p-4">
+        <div class="border border-gray-200 p-6 rounded-lg">
+          <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg>
+          </div>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">1日1Webアプリ提供</h2>
+          <p class="leading-relaxed text-base">1日1つ、あなたが体験するWebアプリを提供します。</p>
+        </div>
+      </div>
+      <div class="md:w-1/2 p-4">
+        <div class="border border-gray-200 p-6 rounded-lg">
+          <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+              <circle cx="6" cy="6" r="3"></circle>
+              <circle cx="6" cy="18" r="3"></circle>
+              <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
+            </svg>
+          </div>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">アプリに対する評価を記録</h2>
+          <p class="leading-relaxed text-base">ユーザービリティ・オリジナリティ・デザインについて評価することができます。</p>
+        </div>
+      </div>
+      <div class="md:w-1/2 p-4">
+        <div class="border border-gray-200 p-6 rounded-lg">
+          <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">LINE通知設定</h2>
+          <p class="leading-relaxed text-base">記録忘れ防止のために、任意のタイミングでLINE通知を設定することができます。</p>
+        </div>
+      </div>
+      <div class="md:w-1/2 p-4">
+        <div class="border border-gray-200 p-6 rounded-lg">
+          <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"></path>
+            </svg>
+          </div>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">キャラクターの育成</h2>
+          <p class="leading-relaxed text-base">提供された日のうちの記録を継続することで、キャラクターが成長します。</p>
+        </div>
+      </div>
+    </div>
+    <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+      <%= link_to "今日のWebアプリを見てみる", todayapp_web_apps_path %>
+    </button>
+  </div>
+</section>
