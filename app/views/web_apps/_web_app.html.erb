@@ -1,16 +1,34 @@
-<div class="card w-96 bg-base-100 shadow-xl">
-  <%= link_to web_app_path(web_app) do %>
-    <figure><%= image_tag web_app.ogp_image %></figure>
-  <% end %>
-  <div class="card-body">
-    <h2 class="card-title">
-      <%= web_app.site_name %>
-      <div class="badge badge-secondary">NEW</div>
-    </h2>
-    <p><%= web_app.ogp_description %></p>
-    <div class="card-actions justify-end">
-      <div class="badge badge-outline">Fashion</div> 
-      <div class="badge badge-outline">Products</div>
+  <!-- article - start -->
+  <div class="flex flex-col overflow-hidden rounded-lg border bg-white">
+    <%= link_to web_app_path(web_app), class: "group relative block h-48 overflow-hidden bg-gray-100 md:h-64" do %>
+      <%= image_tag web_app.ogp_image, alt: "OPG画像", class: "absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110 border-b" %>
+    <% end %>
+
+    <div class="flex flex-1 flex-col p-4 sm:p-6">
+      <h2 class="mb-2 text-lg font-semibold text-gray-800">
+        <%= link_to web_app.site_name, web_app.url, target: "_blank", class: "transition duration-100 hover:text-indigo-500 active:text-indigo-600" %>
+        <% if web_app.offer_date == Date.today %>
+          <div class="badge badge-secondary ml-2">NEW</div>
+        <% end %>
+      </h2>
+
+      <p class="mb-8 text-gray-500"><%= web_app.ogp_description %></p>
+
+      <div class="mt-auto flex items-end justify-between">
+        <div class="flex items-center gap-2">
+          <div>
+            <span class="block text-indigo-500">提供日</span>
+            <span class="block text-sm text-gray-400"><%= web_app.offer_date %></span>
+          </div>
+        </div>
+        <% if user_signed_in? && web_app.reviews.exists?(user_id: current_user.id) %>
+          <span class="rounded border px-2 py-1 text-sm text-gray-500">reviewed</span>
+        <% else %>
+          <span class="rounded border px-2 py-1 text-sm text-red-500 bg-red-200">not review</span>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
+  <!-- article - end -->
+
+

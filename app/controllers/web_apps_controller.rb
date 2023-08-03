@@ -3,7 +3,7 @@ class WebAppsController < ApplicationController
   before_action :set_review, only: %i[show todayapp], if: :user_signed_in?
 
   def index
-    @web_apps = WebApp.all
+    @web_apps = WebApp.where('offer_date <= ?', Date.today).order(offer_date: :desc)
   end
 
   def show; end
