@@ -1,0 +1,98 @@
+<div class="bg-white py-6 sm:py-8 lg:py-12">
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+    <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-6"><%= "#{current_user.name}さんの評価結果" %></h2>
+
+    <% if @review.present? %>
+      <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
+        <!-- review - start -->
+        <div class="flex flex-col gap-3 rounded-lg border p-4 md:p-6 place-items-center shadow-md">
+          <div>
+            <span class="block text-xl lg:text-3xl text-sm font-bold md:text-base">オリジナリティ</span>
+          </div>
+
+          <!-- stars - start -->
+            <% if @review.originality_score == 5 %>
+              <%= render "web_apps/review_stars/star5" %>
+            <% elsif @review.originality_score == 4 %>
+              <%= render "web_apps/review_stars/star4" %>
+            <% elsif @review.originality_score == 3 %>
+              <%= render "web_apps/review_stars/star3" %>
+            <% elsif @review.originality_score == 2 %>
+              <%= render "web_apps/review_stars/star2" %>
+            <% elsif @review.originality_score == 1 %>
+              <%= render "web_apps/review_stars/star1" %>
+            <% end %>
+          <!-- stars - end -->
+
+        </div>
+        <!-- review - end -->
+
+        <!-- review - start -->
+        <div class="flex flex-col gap-3 rounded-lg border p-4 md:p-6 place-items-center shadow-md">
+          <div>
+            <span class="block text-xl lg:text-3xl text-sm font-bold md:text-base">ユーザビリティ</span>
+          </div>
+
+          <!-- stars - start -->
+            <% if @review.usability_score == 5 %>
+              <%= render "web_apps/review_stars/star5" %>
+            <% elsif @review.usability_score == 4 %>
+              <%= render "web_apps/review_stars/star4" %>
+            <% elsif @review.usability_score == 3 %>
+              <%= render "web_apps/review_stars/star3" %>
+            <% elsif @review.usability_score == 2 %>
+              <%= render "web_apps/review_stars/star2" %>
+            <% elsif @review.usability_score == 1 %>
+              <%= render "web_apps/review_stars/star1" %>
+            <% end %>
+          <!-- stars - end -->
+
+        </div>
+        <!-- review - end -->
+
+        <!-- review - start -->
+        <div class="flex flex-col gap-3 rounded-lg border p-4 md:p-6 place-items-center shadow-md">
+          <div>
+            <span class="block text-xl lg:text-3xl text-sm font-bold md:text-base">デザイン</span>
+          </div>
+
+          <!-- stars - start -->
+            <% if @review.design_score == 5 %>
+              <%= render "web_apps/review_stars/star5" %>
+            <% elsif @review.design_score == 4 %>
+              <%= render "web_apps/review_stars/star4" %>
+            <% elsif @review.design_score == 3 %>
+              <%= render "web_apps/review_stars/star3" %>
+            <% elsif @review.design_score == 2 %>
+              <%= render "web_apps/review_stars/star2" %>
+            <% elsif @review.design_score == 1 %>
+              <%= render "web_apps/review_stars/star1" %>
+            <% end %>
+          <!-- stars - end -->
+
+        </div>
+        <!-- review - end -->
+      </div>
+      <!-- comment - start -->
+      <div class="rounded-lg border p-4 mt-2 shadow-md">
+        <div>
+          <p class="block text-sm font-bold md:text-base">コメント</p>
+        </div>
+        <p class="text-gray-600"><%= @review.comment %></p>
+      </div>
+      <!-- comment - end -->
+      <div class="text-right">
+        <%= link_to edit_web_app_review_path(@web_app, @review) do %>
+          <button class="btn btn-sm btn-outline btn-info mt-2 shadow-md">レビューを編集する</button>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="text-center">
+        <p class="text-gray-600">まだレビューがありません。</p>
+        <%= link_to new_web_app_review_path(@web_app) do %>
+          <button class="btn btn-sm btn-outline btn-info m-4">レビューする</button>
+        <% end %>  
+      </div>
+    <% end %>
+  </div>
+</div>

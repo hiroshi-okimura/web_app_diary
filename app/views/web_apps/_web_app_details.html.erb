@@ -1,37 +1,25 @@
-<h1><%= @web_app.site_name %></h1>
-<h1><%= image_tag @web_app.ogp_image %></h1>
-<%= link_to @web_app.url, target: "_blank", class: 'text-blue-600 mt-2 text-lg leading-8' do %>
-  <%= @web_app.url %>
-<% end %>
-<h1><%= @web_app.ogp_description %></h1>
-<%= link_to "https://x.com/share?url=#{ request.url }&text=【今日のWebアプリ】%0a「#{ @web_app.site_name }」%0a #1日1アプリ%0a #1日1サービス%0a", target: '_blank' do %>
-  <button class="btn btn-outline btn-info">twitter share</button>
-<% end %>
-<% if @review.present? %>
-  <div class="stats stats-vertical lg:stats-horizontal shadow">
-    <div class="stat">
-      <div class="stat-title">オリジナリティ</div>
-      <div class="stat-value"><%= @review.originality_score %></div>
-    </div>
-    <div class="stat">
-      <div class="stat-title">ユーザビリティ</div>
-      <div class="stat-value"><%= @review.usability_score %></div>
-    </div>
-    <div class="stat">
-      <div class="stat-title">デザイン</div>
-      <div class="stat-value"><%= @review.design_score %></div>
-    </div>
-    <div class="stat">
-      <div class="stat-title">コメント</div>
-      <div class="stat-value"><%= @review.comment %></div>
+<div class="bg-white py-6 sm:py-8 lg:py-12">
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+    <div class="flex flex-col overflow-hidden rounded-lg bg-gray-200 sm:flex-row md:h-80 shadow-lg">
+      <!-- image - start -->
+      <div class="order-first h-48 w-full bg-gray-300 sm:order-none sm:h-auto sm:w-1/2 lg:w-2/5">
+        <%= image_tag @web_app.ogp_image, class: "h-full w-full object-cover object-center border border-gray-300" %>
+      </div>
+      <!-- image - end -->
+
+      <!-- content - start -->
+      <div class="flex w-full flex-col p-4 sm:w-1/2 sm:p-8 lg:w-3/5">
+        <h2 class="mb-4 text-xl font-bold text-gray-800 md:text-2xl lg:text-4xl"><%= @web_app.site_name %></h2>
+
+        <p class="mb-8 max-w-md text-gray-600"><%= @web_app.ogp_description %></p>
+
+        <div class="mt-auto">
+          <%= link_to @web_app.url, target: "_blank", class: "inline-block rounded-lg bg-white px-8 py-3 text-center text-sm font-semibold text-blue-600 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:text-base" do %>
+            <%= @web_app.url %>
+          <% end %>        
+        </div>
+      </div>
+      <!-- content - end -->
     </div>
   </div>
-  <%= link_to edit_web_app_review_path(@web_app, @review) do %>
-    <button class="btn btn-outline btn-info">編集</button>
-  <% end %>
-<% elsif user_signed_in? %>
-  <%= link_to new_web_app_review_path(@web_app) do %>
-    <button class="btn btn-outline btn-info">記録</button>
-  <% end %>
-<% end %>
-<h1><%= image_tag @web_app.screenshot.url %></h1>
+</div>
