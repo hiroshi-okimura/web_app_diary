@@ -21,10 +21,12 @@
             <span class="block text-sm text-gray-400"><%= web_app.offer_date %></span>
           </div>
         </div>
-        <% if user_signed_in? && web_app.reviews.exists?(user_id: current_user.id) %>
-          <span class="rounded border px-2 py-1 text-sm text-gray-500">reviewed</span>
-        <% else %>
-          <span class="rounded border px-2 py-1 text-sm text-red-500 bg-red-200">not review</span>
+        <% if user_signed_in? %>
+          <% if web_app.reviews.exists?(user_id: current_user.id) %>
+            <span class="rounded border px-2 py-1 text-sm text-gray-500">reviewed</span>
+          <% else %>
+            <span class="rounded border px-2 py-1 text-sm text-red-500 bg-red-200">not review</span>
+          <% end %>
         <% end %>
       </div>
     </div>
