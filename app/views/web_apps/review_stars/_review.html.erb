@@ -1,6 +1,10 @@
 <div class="bg-white py-6 sm:py-8 lg:py-12">
   <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-    <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-6"><%= "#{current_user.name}さんの評価結果" %></h2>
+    <% if user_signed_in? %>     
+      <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-6"><%= "#{current_user.name}さんの評価結果" %></h2>
+    <% else %>
+      <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-6">評価結果</h2>
+    <% end %>
 
     <% if @review.present? %>
       <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
