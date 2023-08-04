@@ -3,6 +3,7 @@ ja:
     models:
       user: 'ユーザー'
       web_app: 'Webアプリ'
+      review: 'レビュー'
     attributes:
       user:
         name: 'ユーザー名'
@@ -18,4 +19,11 @@ ja:
         screenshot: 'スクリーンショット'
         offer_date: '提供日'
         id: 'ID'
+      review:
+        comment: 'コメント'
+        originality_score: 'オリジナリティスコア'
+        usability_score: 'ユーザビリティスコア'
+        design_score: 'デザインスコア'
+        is_counted: 'カウント'
+        bookmark: 'ブックマーク'
         

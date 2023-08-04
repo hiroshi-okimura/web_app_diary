@@ -1,4 +1,5 @@
 <%= form_with model: [@web_app, @review], local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
     <%= f.label :originality_score %>
     <%= f.number_field :originality_score, in: 1..5 %>

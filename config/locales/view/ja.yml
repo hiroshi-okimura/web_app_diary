@@ -14,6 +14,10 @@ ja:
     message: 
       not_authorized: '権限がありません'
       delete_confirm: "削除しますか？"
+      registed: '%{item}を登録しました。'
+      not_registed: '%{item}の登録が出来ませんでした。'
+      updated: "%{item}を更新しました"
+      not_updated: '%{item}を更新出来ませんでした'
   admin:
     web_apps:
       index:

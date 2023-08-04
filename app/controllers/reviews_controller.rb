@@ -11,9 +11,10 @@ class ReviewsController < ApplicationController
     @review = @web_app.reviews.build(review_params)
     @review.user_id = current_user.id
     if @review.save
-      redirect_to web_app_path(@web_app), success: "レビューを記録しました"
+      redirect_to web_app_path(@web_app), success: t('defaults.message.registed', item: Review.model_name.human)
     else
-      redirect_to web_app_path(@web_app), danger: "レビューの記録に失敗しました"
+      flash.now[:danger] = t('defaults.message.not_registed', item: Review.model_name.human)
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -21,9 +22,10 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      redirect_to web_app_path(@web_app), notice: "レビューを更新しました"
+      redirect_to web_app_path(@web_app), success: t('defaults.message.updated', item: Review.model_name.human)
     else
-      redirect_to web_app_path(@web_app), danger: "レビューの更新に失敗しました"
+      flash.now[:danger] = t('defaults.message.not_updated', item: Review.model_name.human)
+      render :edit, status: :unprocessable_entity
     end
   end
 
