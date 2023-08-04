@@ -6,12 +6,12 @@
         <%= form_with model: @user, url: user_session_path, local: true do |f| %>
           <div class="field">
             <%= f.label :email, class: "mb-2 inline-block text-sm text-gray-800 sm:text-base"%><br />
-            <%= f.email_field :email, class: "form-control w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring", autofocus: true, autocomplete: "email" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" %>
           </div>
 
           <div class="field">
             <%= f.label :password, class: "my-2 inline-block text-sm text-gray-800 sm:text-base"%><br />
-            <%= f.password_field :password, class: "form-control w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring", autocomplete: "current-password" %>
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" %>
           </div>
 
           <div class="actions">
@@ -32,5 +32,10 @@
         <%= link_to "新規登録はこちら", new_registration_path(resource_name), class: "link link-info text-center text-sm" %><br />
       </div>
     </div>
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <div class="text-center mt-1">
+        <%= link_to "パスワードをお忘れの方はこちら(未実装)", "#", class: "link link-info text-center text-sm" %><br />
+      </div>
+    <% end %>
   </div>
 </div>
