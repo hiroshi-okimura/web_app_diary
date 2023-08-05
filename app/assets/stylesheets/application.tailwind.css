@@ -9,3 +9,7 @@
   margin-left: auto;
   padding: 15px;
 }
+
+.field_with_errors {
+  display: inline-block;
+}
