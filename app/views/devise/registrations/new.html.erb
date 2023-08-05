@@ -1,34 +1,41 @@
-<h2>Sign up</h2>
+<%= render "devise/shared/error_messages", resource: resource %>
+<div class="bg-white py-6 sm:py-8 lg:py-12">
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+    <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl"><%= t('defaults.register') %></h2>
+    <div class="mx-auto max-w-lg rounded-lg border">
+      <div class="flex flex-col gap-4 p-4 md:p-8">
+        <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+          <div class="field">
+            <%= f.label :name, class: "mb-2 inline-block text-sm text-gray-800 sm:text-base"%><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" %>
+          </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="field">
+            <%= f.label :email, class: "my-2 inline-block text-sm text-gray-800 sm:text-base"%><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+          <div class="field">
+            <%= f.label :password, class: "my-2 inline-block text-sm text-gray-800 sm:text-base"%>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %>文字以上)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password", autocomplete: "current-password", class: "form-control w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation, class: "my-2 inline-block text-sm text-gray-800 sm:text-base"%><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", autocomplete: "current-password", class: "form-control w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit t('defaults.register'), class: "mt-4 btn btn-outline btn-block" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="flex items-center justify-center bg-gray-100 p-4">
+        <%= link_to "ログインはこちら", new_user_session_path, class: "link link-info text-center text-sm" %><br />
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

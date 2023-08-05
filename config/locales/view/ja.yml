@@ -8,6 +8,9 @@ ja:
     edit: "編集"
     delete: "削除"
     register: "新規登録"
+    update: "更新"
+    back: "戻る"
+    review: "記録"
     todayapp: "今日のWebアプリ"
     appindex: "Webアプリ一覧"
     mypage: "マイページ"
@@ -24,4 +27,3 @@ ja:
         title: "Webアプリ一覧"
       show:
         title: "Webアプリ詳細"
-        
