@@ -97,3 +97,5 @@ gem 'mini_magick'
 
 gem 'fog-aws'
 gem 'aws-sdk-s3', require: false
+
+gem 'meta-tags'
