@@ -20,7 +20,8 @@ module ApplicationHelper
       },
       # Twitter用の設定を個別で設定する
       twitter: {
-        card: image_url('ogp_image.png'),
+        card: 'summary_large_image', # Twitterで表示する場合は大きいカードにする
+        image: image_url('ogp_image.png') # 配置するパスやファイル名によって変更すること
       }
     }
   end
