@@ -16,13 +16,11 @@ module ApplicationHelper
         type: 'website',
         url: request.original_url,
         image: image_url('ogp_image.png'), # 配置するパスやファイル名によって変更すること
-        local: 'ja-JP'
+        locale: 'ja-JP'
       },
       # Twitter用の設定を個別で設定する
       twitter: {
-        card: 'summary_large_image', # Twitterで表示する場合は大きいカードにする
-        site: '@', # アプリの公式Twitterアカウントがあれば、アカウント名を書く
-        image: image_url('ogp_image.png') # 配置するパスやファイル名によって変更すること
+        card: image_url('ogp_image.png'),
       }
     }
   end
