@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="bg-white py-6 sm:py-8 lg:py-12">
+    <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+      <div class="flex flex-col overflow-hidden rounded-lg bg-gray-200 sm:flex-row md:h-80 shadow-lg">
+        <!-- image - start -->
+        <div class="order-first h-48 w-full bg-gray-300 sm:order-none sm:h-auto sm:w-1/2 lg:w-2/5">
+          <%= image_tag web_app.ogp_image, class: "h-full w-full object-cover object-center border border-gray-300" %>
+        </div>
+        <!-- image - end -->
+
+        <!-- content - start -->
+        <div class="flex w-full flex-col p-4 sm:w-1/2 sm:p-8 lg:w-3/5">
+          <h2 class="mb-4 text-xl font-bold text-gray-800 md:text-2xl lg:text-4xl"><%= web_app.site_name %></h2>
+
+          <p class="mb-8 max-w-md text-gray-600"><%= web_app.ogp_description %></p>
+
+          <div class="mt-auto">
+            <%= link_to web_app.url, target: "_blank", class: "inline-block rounded-lg bg-white px-8 py-3 text-center text-sm font-semibold text-blue-600 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:text-base" do %>
+              <%= @web_app.url %>
+            <% end %>        
+          </div>
+        </div>
+        <%= render "web_apps/bookmark_button", web_app: web_app %>
+        <!-- content - end -->
+      </div>
+    </div>
+  </div>
+  <div class="flex w-full flex-col gap-2.5 mb-6 sm:flex-row sm:justify-center">
+    <%= link_to "https://x.com/share?url=#{ request.url }&text=【今日体験したWebアプリ】%0a「#{ web_app.site_name }」%0a %231日1アプリ%0a %231日1サービス%0a %23WebAppDiary%0a", target: '_blank',
+                class: "flex inline-block rounded-lg bg-blue-400 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-blue-300 transition duration-100 hover:bg-blue-500 focus-visible:ring active:bg-blue-700 md:text-base" do %>
+      <%= image_tag "footer_x.jpg", class: "h-8 mr-3" %>
+      <span class="self-center whitespace-nowrap">に体験したWebアプリをシェアしよう</span>
+    <% end %>
+  </div>
+  <%= render "web_apps/review_stars/review", web_app: web_app %>
+  <div class="bg-white py-6 sm:py-8 lg:py-12">
+    <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+      <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-6">トップページのスクリーンショット</h2>
+      <div class="w-full h-[720px] overflow-y-scroll border border-gray-300 shadow-lg">
+        <%= image_tag web_app.screenshot.url %>
+      </div>
+    </div>
+  </div>
+</div>

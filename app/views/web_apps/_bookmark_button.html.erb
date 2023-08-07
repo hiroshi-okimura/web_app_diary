@@ -1,0 +1,5 @@
+<% if bookmarked?(current_user, web_app) %>
+  <%= render 'unbookmark' %>
+<% else %>
+  <%= render 'bookmark' %>
+<% end %>
