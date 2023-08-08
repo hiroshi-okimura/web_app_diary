@@ -27,3 +27,8 @@ ja:
         title: "Webアプリ一覧"
       show:
         title: "Webアプリ詳細"
+  bookmarks:
+    create:
+      success: 'ブックマークしました'
+    destroy:
+      success: 'ブックマークを外しました'

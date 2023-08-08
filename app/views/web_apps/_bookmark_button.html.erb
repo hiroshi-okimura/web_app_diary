@@ -1,5 +1,5 @@
-<% if bookmarked?(current_user, web_app) %>
-  <%= render 'unbookmark' %>
+<% if current_user.bookmark?(web_app) %>
+  <%= render 'unbookmark', { web_app: web_app } %>
 <% else %>
-  <%= render 'bookmark' %>
+  <%= render 'bookmark', { web_app: web_app } %>
 <% end %>
