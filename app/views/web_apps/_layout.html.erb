@@ -10,7 +10,10 @@
 
         <!-- content - start -->
         <div class="flex w-full flex-col p-4 sm:w-1/2 sm:p-8 lg:w-3/5">
-          <h2 class="mb-4 text-xl font-bold text-gray-800 md:text-2xl lg:text-4xl"><%= web_app.site_name %></h2>
+          <h2 class="mb-4 text-xl font-bold text-gray-800 md:text-2xl lg:text-4xl flex items-center justify-between">
+            <%= web_app.site_name %>
+            <!-- <%= render "web_apps/bookmark_button", web_app: web_app %> -->
+          </h2>
 
           <p class="mb-8 max-w-md text-gray-600"><%= web_app.ogp_description %></p>
 
@@ -20,7 +23,6 @@
             <% end %>        
           </div>
         </div>
-        <%= render "web_apps/bookmark_button", web_app: web_app %>
         <!-- content - end -->
       </div>
     </div>

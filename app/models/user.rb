@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   enum role: { general: 0, admin: 1 }
 
