@@ -2,6 +2,6 @@ class MypagesController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @current_user = User.find_by(id: current_user.id)
+    @bookmark_web_apps = current_user.bookmark_web_apps.includes(:user).order(created_at: :desc)
   end
 end

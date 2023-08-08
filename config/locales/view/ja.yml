@@ -14,6 +14,7 @@ ja:
     todayapp: "今日のWebアプリ"
     appindex: "Webアプリ一覧"
     mypage: "マイページ"
+    bookmark: "ブックマーク"
     message: 
       not_authorized: '権限がありません'
       delete_confirm: "削除しますか？"
@@ -21,6 +22,7 @@ ja:
       not_registed: '%{item}の登録が出来ませんでした。'
       updated: "%{item}を更新しました"
       not_updated: '%{item}を更新出来ませんでした'
+      no_result: 'ブックマーク中のWebアプリがありません。'
   admin:
     web_apps:
       index:

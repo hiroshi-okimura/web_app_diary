@@ -15,3 +15,20 @@
     </div>
   </div>
 </div>
+<div class="bg-white py-6 sm:py-8 lg:py-12">
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+    <!-- text - start -->
+    <div class="mb-10 md:mb-16">
+      <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-xl pb-2 border-b-2">ブックマークしたWebアプリ</h2>
+    </div>
+    <!-- text - end -->
+
+    <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
+      <% if @bookmark_web_apps.present? %>
+        <%= render @bookmark_web_apps %>
+      <% else %>
+        <p><%= t('defaults.message.no_result') %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
