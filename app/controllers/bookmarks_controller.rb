@@ -10,6 +10,6 @@ class BookmarksController < ApplicationController
   def destroy
     web_app = current_user.bookmarks.find(params[:id]).web_app
     current_user.unbookmark(web_app)
-    redirect_back fallback_location: root_path, success: t('.success')
+    redirect_back fallback_location: root_path, status: :see_other, success: t('.success')
   end
 end
