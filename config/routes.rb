@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   resource :mypage, only: %i[show]
+  resources :bookmarks, only: %i[create destroy]
 
   namespace :admin do
     root to: "dashboards#index"

@@ -4,22 +4,5 @@
     <%= link_to "過去に提供されたWebアプリ一覧", web_apps_path unless user_signed_in? %>
   </div>
 </div>
-<div class="container">
-  <%= render 'web_app_details' %>
-  <div class="flex w-full flex-col gap-2.5 mb-6 sm:flex-row sm:justify-center">
-    <%= link_to "https://x.com/share?url=#{ request.url }&text=【今日体験したWebアプリ】%0a「#{ @web_app.site_name }」%0a %231日1アプリ%0a %231日1サービス%0a %23WebAppDiary%0a", target: '_blank',
-                class: "flex inline-block rounded-lg bg-blue-400 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-blue-300 transition duration-100 hover:bg-blue-500 focus-visible:ring active:bg-blue-700 md:text-base" do %>
-      <%= image_tag "footer_x.jpg", class: "h-8 mr-3" %>
-      <span class="self-center whitespace-nowrap">に体験したWebアプリをシェアしよう</span>
-    <% end %>
-  </div>
-  <%= render "web_apps/review_stars/review", web_app: @web_app %>
-  <div class="bg-white py-6 sm:py-8 lg:py-12">
-    <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-      <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-6">トップページのスクリーンショット</h2>
-      <div class="w-full h-[720px] overflow-y-scroll border border-gray-300 shadow-lg">
-        <%= image_tag @web_app.screenshot.url %>
-      </div>
-    </div>
-  </div>
-</div>
+
+<%= render "web_apps/layout", web_app: @web_app %>

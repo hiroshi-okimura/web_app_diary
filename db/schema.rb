@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_28_020520) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_08_012711) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "web_app_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "web_app_id"], name: "index_bookmarks_on_user_id_and_web_app_id", unique: true
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+    t.index ["web_app_id"], name: "index_bookmarks_on_web_app_id"
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -22,7 +32,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_020520) do
     t.integer "usability_score"
     t.integer "design_score"
     t.boolean "is_counted", default: false
-    t.boolean "bookmark", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_reviews_on_user_id"
@@ -58,6 +67,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_020520) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "bookmarks", "users"
+  add_foreign_key "bookmarks", "web_apps"
   add_foreign_key "reviews", "users"
   add_foreign_key "reviews", "web_apps"
 end
