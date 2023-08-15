@@ -1,6 +1,6 @@
 class Admin::WebAppsController < Admin::BaseController
   def index
-    @web_apps = WebApp.all
+    @web_apps = WebApp.order(offer_date: :desc)
   end
 
   def new
