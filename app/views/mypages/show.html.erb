@@ -1,36 +1,46 @@
-<div class="bg-white py-6 sm:py-8 lg:py-12">
-  <div class="mx-auto max-w-screen-xl px-4 md:px-8">
-    <h2 class="mb-8 text-center text-2xl font-bold text-gray-800 md:mb-12 lg:text-3xl">マイページ</h2>
+<div class="container">
+  <div class="bg-white py-6 sm:py-8 lg:py-12">
+    <div class="mx-auto max-w-screen-xl px-4 md:px-8">
+      <h2 class="mb-8 text-center text-2xl font-bold text-gray-800 md:mb-12 lg:text-3xl">マイページ</h2>
 
-    <div class="flex justify-center">
-      <!-- quote - start -->
-      <div class="flex flex-col items-center gap-4 rounded-lg bg-indigo-500 px-8 py-6 md:gap-6 mx-auto lg:min-w-[30%]">
-        <div class="items-center gap-2 sm:flex-row md:gap-3">
-          <div class="text-center text-sm font-bold text-indigo-50 sm:text-left md:text-base lg:text-3xl"><%= current_user.name %></div>
+      <div class="flex justify-center">
+        <!-- quote - start -->
+        <div class="flex flex-col items-center gap-4 rounded-lg bg-indigo-500 px-8 py-6 md:gap-6 mx-auto lg:min-w-[30%]">
+          <div class="items-center gap-2 sm:flex-row md:gap-3">
+            <div class="text-center text-sm font-bold text-indigo-50 sm:text-left md:text-base lg:text-3xl"><%= current_user.name %></div>
+          </div>
+          <% unless current_user.provider == "line" %>          
+            <div class="max-w-md text-center text-white lg:text-lg"><%= current_user.email %></div>
+            <%= link_to t('defaults.edit'), edit_user_registration_path, class: "inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base" %>
+          <% end %>
         </div>
-        <% unless current_user.provider == "line" %>          
-          <div class="max-w-md text-center text-white lg:text-lg"><%= current_user.email %></div>
-          <%= link_to t('defaults.edit'), edit_user_registration_path, class: "inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base" %>
-        <% end %>
+        <!-- quote - end -->
       </div>
-      <!-- quote - end -->
     </div>
   </div>
-</div>
-<div class="bg-white py-6 sm:py-8 lg:py-12">
-  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-    <!-- text - start -->
-    <div class="mb-10 md:mb-16">
-      <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-xl pb-2 border-b-2">ブックマークしたWebアプリ</h2>
-    </div>
-    <!-- text - end -->
 
-    <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
-      <% if @bookmark_web_apps.present? %>
-        <%= render @bookmark_web_apps %>
-      <% else %>
-        <p><%= t('defaults.message.no_result') %></p>
-      <% end %>
+  <h2 class="my-4 text-center text-xl font-bold text-gray-800 md:mb-6 lg:text-2xl pb-2 border-b-2">記録カレンダー</h2>
+  <%= turbo_frame_tag 'calendar' do %>
+    <%= month_calendar do |date| %>
+      <%= date.day %>
+    <% end %>
+  <% end %>
+
+  <div class="bg-white py-6 sm:py-8 lg:py-12">
+    <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+      <!-- text - start -->
+      <div class="mb-10 md:mb-16">
+        <h2 class="mb-4 text-center text-xl font-bold text-gray-800 md:mb-6 lg:text-2xl pb-2 border-b-2">ブックマークしたWebアプリ</h2>
+      </div>
+      <!-- text - end -->
+
+      <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
+        <% if @bookmark_web_apps.present? %>
+          <%= render @bookmark_web_apps %>
+        <% else %>
+          <p><%= t('defaults.message.no_result') %></p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
