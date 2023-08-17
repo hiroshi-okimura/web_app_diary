@@ -4,6 +4,7 @@ ja:
       role:
         admin: '管理者'
         general: '一般'
+        guest: 'ゲスト'
   activerecord:
     models:
       user: 'ユーザー'

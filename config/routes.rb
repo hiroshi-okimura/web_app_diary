@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     omniauth_callbacks: "omniauth_callbacks",
     registrations: "users/registrations"
   }
+  devise_scope :user do
+    post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
+  end
 
   resources :web_apps, only: %i[index show] do
     collection do
