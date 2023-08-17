@@ -6,4 +6,8 @@ class WebApp < ApplicationRecord
   validates :site_name, presence: true
   validates :url, presence: true, uniqueness: true
   validates :status, presence: true
+
+  def start_time
+    self.offer_date
+  end
 end

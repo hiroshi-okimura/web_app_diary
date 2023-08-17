@@ -17,6 +17,7 @@ ja:
     bookmark: "ブックマーク"
     message: 
       not_authorized: '権限がありません'
+      not_authorized_line_user: "LINEログインのユーザーはプロフィールを編集できません。"
       delete_confirm: "削除しますか？"
       registed: '%{item}を登録しました。'
       not_registed: '%{item}の登録が出来ませんでした。'
@@ -34,3 +35,13 @@ ja:
       success: 'ブックマークしました'
     destroy:
       success: 'ブックマークを外しました'
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      next: "次 &rsaquo;"
+      previous: "&lsaquo; 前"
+      truncate: "&hellip;"
+  simple_calendar:
+    previous: "<<"
+    next: ">>"
