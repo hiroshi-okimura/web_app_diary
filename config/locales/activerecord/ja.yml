@@ -1,4 +1,9 @@
 ja:
+  enums:
+    user:
+      role:
+        admin: '管理者'
+        general: '一般'
   activerecord:
     models:
       user: 'ユーザー'
@@ -26,4 +31,3 @@ ja:
         design_score: 'デザインスコア'
         is_counted: 'カウント'
         bookmark: 'ブックマーク'
-        

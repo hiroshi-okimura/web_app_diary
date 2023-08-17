@@ -23,6 +23,7 @@ ja:
       not_registed: '%{item}の登録が出来ませんでした。'
       updated: "%{item}を更新しました"
       not_updated: '%{item}を更新出来ませんでした'
+      deleted: '%{item}を削除しました'
       no_result: 'ブックマーク中のWebアプリがありません。'
   admin:
     web_apps:
@@ -30,6 +31,13 @@ ja:
         title: "Webアプリ一覧"
       show:
         title: "Webアプリ詳細"
+    user:
+      index:
+        title: "ユーザー一覧"
+      show:
+        title: "ユーザー詳細"
+      edit:
+        title: "ユーザー編集"
   bookmarks:
     create:
       success: 'ブックマークしました'

@@ -1,0 +1,18 @@
+<h1 class="mt-2 ml-2"><%= t('.title') %></h1>
+<div class="overflow-x-auto">
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ユーザー名</th>
+        <th>メールアドレス</th>
+        <th>役割</th>
+        <th>プロバイダー</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @users %>
+    </tbody>
+  </table>
+</div>
