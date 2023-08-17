@@ -13,7 +13,11 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[new create edit update]
   end
 
-  resource :mypage, only: %i[show]
+  resource :mypage, only: %i[show] do
+    collection do
+      get :bookmark
+    end
+  end
   resources :bookmarks, only: %i[create destroy]
 
   namespace :admin do
