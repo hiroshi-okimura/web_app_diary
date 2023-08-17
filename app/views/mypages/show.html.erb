@@ -20,9 +20,13 @@
   </div>
 
   <h2 class="my-4 text-center text-xl font-bold text-gray-800 md:mb-6 lg:text-2xl pb-2 border-b-2">記録カレンダー</h2>
-  <%= turbo_frame_tag 'calendar' do %>
-    <%= month_calendar do |date| %>
-      <%= date.day %>
+  <%= month_calendar(events: @web_apps_with_reviews) do |date, web_apps| %>
+    <%= date.day %>
+
+    <% web_apps.each do |web_app| %>
+      <div>
+        <%= link_to web_app.site_name, web_app_path(web_app), class:"text-blue-500" %>
+      </div>
     <% end %>
   <% end %>
 
