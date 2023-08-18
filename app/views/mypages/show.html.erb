@@ -9,7 +9,7 @@
           <div class="items-center gap-2 sm:flex-row md:gap-3">
             <div class="text-center text-sm font-bold text-indigo-50 sm:text-left md:text-base lg:text-3xl"><%= current_user.name %></div>
           </div>
-          <% unless current_user.provider == "line" %>          
+          <% unless current_user.provider == "line" || current_user.guest? %>          
             <div class="max-w-md text-center text-white lg:text-lg"><%= current_user.email %></div>
             <%= link_to t('defaults.edit'), edit_user_registration_path, class: "inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base" %>
           <% end %>

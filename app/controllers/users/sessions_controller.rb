@@ -2,6 +2,16 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  def guest_sign_in
+    @guest_user = User.create!(
+      name: "ゲストユーザー",
+      email: "#{SecureRandom.alphanumeric(10)}@example.com",
+      password: "password",
+      role: 2
+    )
+    sign_in @guest_user
+    redirect_to todayapp_web_apps_path, success: "ゲストユーザーとしてログインしました"
+  end
 
   # GET /resource/sign_in
   # def new

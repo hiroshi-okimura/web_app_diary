@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_web_apps, through: :bookmarks, source: :web_app
 
-  enum role: { general: 0, admin: 1 }
+  enum role: { general: 0, admin: 1, guest: 2 }
 
   def social_profile(provider)
     social_profiles.select { |sp| sp.provider == provider.to_s }.first

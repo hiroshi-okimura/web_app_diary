@@ -17,6 +17,9 @@
           <div class="actions">
             <%= f.submit t('defaults.login'), class: "mt-4 btn btn-outline btn-block" %>
           </div>
+          <div class="flex items-center justify-center gap-2">
+            <%= link_to 'ゲストログインはこちら', users_guest_sign_in_path, data: {turbo_method: :post}, class: "btn btn-xs mt-4" %>
+          </div>
         <% end %>
         <div class="relative flex items-center justify-center">
           <span class="absolute inset-x-0 h-px bg-gray-300"></span>
