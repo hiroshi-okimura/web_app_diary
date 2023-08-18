@@ -77,4 +77,11 @@ Style/StringLiterals:
 
 Bundler/OrderedGems:
   Enabled: false
-  
+
+# 新しいハッシュの構文を使用する指示を無効にする
+Style/HashSyntax:
+  Enabled: false
+
+# ハッシュのキーの整列の指示を無効にする
+Layout/HashAlignment:
+  Enabled: false

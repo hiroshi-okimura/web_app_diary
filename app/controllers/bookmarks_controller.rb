@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :authenticate_user!
-  
+
   def create
     web_app = WebApp.find(params[:web_app_id])
     current_user.bookmark(web_app)

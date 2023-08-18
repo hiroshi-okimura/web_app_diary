@@ -1,5 +1,5 @@
 class Admin::WebAppsController < Admin::BaseController
-  before_action :set_web_app, only: [:show, :edit, :update, :destroy]
+  before_action :set_web_app, only: %i[show edit update destroy]
 
   def index
     @web_apps = WebApp.order(offer_date: :desc)
@@ -13,23 +13,23 @@ class Admin::WebAppsController < Admin::BaseController
     @web_app = WebApp.new(web_app_params)
 
     options = {
-      fullpage: 1, 
-      width: "", 
-      viewport: "", 
-      format: "", 
-      css_url: "", 
-      delay: 3, 
-      ttl: "", 
-      force: "", 
-      placeholder: "", 
-      user_agent: "", 
-      accept_lang: "", 
-      export: "" 
+      fullpage: 1,
+      width: "",
+      viewport: "",
+      format: "",
+      css_url: "",
+      delay: 3,
+      ttl: "",
+      force: "",
+      placeholder: "",
+      user_agent: "",
+      accept_lang: "",
+      export: ""
     }
 
     screenshot_url = ScreenshotService.screenshotlayer(@web_app.url, options)
     @web_app.remote_screenshot_url = screenshot_url
-  
+
     if @web_app.save
       redirect_to admin_web_apps_path, success: t('defaults.message.registed', item: WebApp.model_name.human)
     else

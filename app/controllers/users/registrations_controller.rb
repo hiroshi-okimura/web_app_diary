@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :check_line_user, only: [:edit, :update]
-  before_action :check_guest, only: [:edit, :update]
+  before_action :check_line_user, only: %i[edit update]
+  before_action :check_guest, only: %i[edit update]
   # before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
 
@@ -63,7 +63,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   private
-  
+
   def check_line_user
     if current_user.provider == "line"
       redirect_to mypage_path, danger: t('defaults.message.not_authorized_line_user')
