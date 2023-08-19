@@ -3,7 +3,6 @@ class ScreenshotService
   require 'digest' unless defined?(Digest)
 
   def self.screenshotlayer(url, options = {})
-
     # set access key
     access_key = ENV['SCREENSHOTLAYER_ACCESS_KEY']
 
@@ -28,7 +27,7 @@ class ScreenshotService
     }
 
     query = parameters.
-      sort_by { |s| s[0].to_s }. 
+      sort_by { |s| s[0].to_s }.
       select { |s| s[1] }.
       map { |s| s.map { |v| CGI::escape(v.to_s) }.join('=') }.
       join('&')

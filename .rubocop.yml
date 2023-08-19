@@ -85,3 +85,43 @@ Style/HashSyntax:
 # ハッシュのキーの整列の指示を無効にする
 Layout/HashAlignment:
   Enabled: false
+
+# 設定が厳しいので一旦全てfalseにする
+Metrics:
+  Enabled: false
+
+# 三項演算子の使用を許可する
+Style/RedundantCondition:
+  Enabled: false
+
+# 文字列補間の中でシングルクォートの文字列を使用を無効
+Style/StringLiteralsInInterpolation:
+  Enabled: false
+
+# 条件式の中での単純な処理をガード節（guard clause）を使用して書くことを無効
+Style/GuardClause:
+  Enabled: false
+
+# メソッド名がset_で始まる場合に警告を無効
+Naming/AccessorMethodName:
+  Enabled: false
+
+# selfを省略することを無効
+Style/RedundantSelf:
+  Enabled: false
+
+# 一旦無効にする
+Lint/UselessAssignment:
+  Enabled: false
+
+# メソッドチェーンのドットの位置のチェックを一旦無効にする
+Layout/DotPosition:
+  Enabled: false
+
+# メソッド呼び出しのインデントを一旦無効にする
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+
+# ::を使用したメソッド呼び出しのスタイルをチェックを一旦無効にする
+Style/ColonMethodCall:
+  Enabled: false
