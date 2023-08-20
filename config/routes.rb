@@ -29,4 +29,7 @@ Rails.application.routes.draw do
     resources :web_apps
     resources :users, only: %i[index show edit update destroy]
   end
+
+  get '/terms', to: 'static_pages#terms'
+  get '/privacy_policy', to: 'static_pages#privacy_policy'
 end
