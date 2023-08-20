@@ -9,6 +9,9 @@ module ApplicationHelper
       keywords: 'Webアプリ,UI/UX,個人開発,情報収集,日記,記録,1日1アプリ,Webアプリまとめ',
       canonical: request.original_url,
       separator: '|',
+      icon: [
+        { href: image_url('favicon.ico') }
+      ],
       og: {
         site_name: :site,
         title: :title,
