@@ -43,11 +43,10 @@
 	- マイページにて評価記録の確認
 		- マイページ画面へ遷移することができる
 		- 評価記録の一覧、編集
-　
+
 - 管理ユーザー
 	- 提供するWebアプリの一覧、詳細、作成、編集、削除
-	- 記録結果の一覧、詳細、作成、編集、削除
-	- ユーザーの一覧、詳細、作成、編集、削除
+	- ユーザーの一覧、詳細、編集、削除
 
 ### ■実装予定の機能(本番リリース)
 - ログインユーザー
@@ -71,7 +70,7 @@
 		- ユーザーアバターをキャラクターにする
 
 ### ■補足
-- Webアプリのデータ取集は、まずはRUNTEQ求人サイトに掲載されている企業のサービスを手動で行う。その後、いくつかのサイトからスクレイピングにてデータ収集予定。（サイトは随時見つけていく）　
+- Webアプリのデータ取集は、まずはRUNTEQ求人サイトに掲載されている企業のサービスを手動で行う。その後、いくつかのサイトからスクレイピングにてデータ収集予定。（サイトは随時見つけていく）
 →結果的にスクレイピングが厳しそうであれば、全て手動でデータ収集する。
 
 ### ■なぜこのサービスを作りたいのか？
@@ -93,7 +92,9 @@ https://www.figma.com/file/Vi640C6qKpIrX11KXXAEXu/WebAppDiary?type=design&t=DboX
 ```mermaid
 erDiagram
   Users ||--o{ Reviews : has
+	Users ||--o{ Bookmarks : has
   WebApps ||--o{ Reviews : has
+	WebApps ||--o{ Bookmarks : has
   Characters ||--o{ Users : has
   Users {
 	bigint id PK
@@ -117,7 +118,6 @@ erDiagram
 	string ogp_image
 	string screenshot
 	date offer_date
-	enum status
   }
   Reviews {
 	bigint id PK
@@ -128,7 +128,11 @@ erDiagram
 	int usability_score
 	int design_score
 	boolean is_counted
-	boolean bookmark
+  }
+  Bookmarks {
+	bigint id PK
+	bigint user_id FK
+	bigint web_app_id FK
   }
   Characters {
 	bigint id PK
@@ -139,7 +143,7 @@ erDiagram
 ```
 
 ### ■スケジュール
-1. 企画（アイデア企画・技術調査）：6/25〆切 　
+1. 企画（アイデア企画・技術調査）：6/25〆切 
 2. 設計（README作成・画面遷移図作成・ER図作成）：6/30 〆切
 3. 機能実装：7/1 - 7/30
 4. MVPリリース：8/4〆切

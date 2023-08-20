@@ -26,6 +26,11 @@ ja:
       not_updated: '%{item}を更新出来ませんでした'
       deleted: '%{item}を削除しました'
       no_result: 'ブックマーク中のWebアプリがありません。'
+  static_pages:
+    privacy_policy:
+      title: "プライバシーポリシー"
+    terms:
+      title: "利用規約"
   admin:
     web_apps:
       index:

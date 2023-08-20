@@ -6,9 +6,12 @@ module ApplicationHelper
       reverse: true,
       charset: 'utf-8',
       description: '個人開発の参考としてUI/UXの情報収集を継続的に行いたい人のための、 1日1Webアプリ提供&記録サービスです。',
-      keywords: 'Webアプリ,UI/UX,個人開発,情報収集,日記,記録,1日1アプリ,Webアプリまとめ',
+      keywords: 'Webアプリ,UI/UX,個人開発,情報収集,日記,記録,1日1アプリ,Webアプリまとめ,Webアプリ 一覧',
       canonical: request.original_url,
       separator: '|',
+      icon: [
+        { href: image_url('favicon.ico') }
+      ],
       og: {
         site_name: :site,
         title: :title,
