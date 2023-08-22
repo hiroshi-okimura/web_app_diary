@@ -1,23 +1,21 @@
 <h1 class="mt-2 ml-2"><%= t('.title') %></h1>
 <div class="text-right mb-3">
-<%= link_to t('defaults.new'), new_admin_web_app_path, class: 'btn btn-outline btn-accent mr-4' %>
+  <%= link_to t('defaults.new'), new_admin_web_app_path, class: 'btn btn-outline btn-accent mr-4' %>
 </div>
-<div class="overflow-x-auto">
-  <table class="table">
-    <!-- head -->
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>アプリ名</th>
-        <th>URL</th>
-        <th>提供日</th>
-        <th>OGP概要</th>
-        <th>OGPイメージURL</th>
-        <th>スクリーンショット場所</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render @web_apps %>
-    </tbody>
-  </table>
-</div>
+<table class="table w-full">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>アプリ名</th>
+      <th>URL</th>
+      <th>提供日</th>
+      <th class="w-1/3">OGP概要</th>
+      <th>OGPイメージURL</th>
+      <th>スクリーンショット場所</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @web_apps %>
+  </tbody>
+</table>
