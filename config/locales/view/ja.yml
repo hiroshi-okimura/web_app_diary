@@ -25,6 +25,10 @@ ja:
       not_registed: '%{item}の登録が出来ませんでした。'
       updated: "%{item}を更新しました"
       not_updated: '%{item}を更新出来ませんでした'
+      notify_registed: '通知時刻を登録しました。'
+      notify_not_registed: '通知時刻の登録が出来ませんでした。'
+      notify_updated: "通知時刻を更新しました"
+      notify_not_updated: '通知時刻を更新出来ませんでした'
       deleted: '%{item}を削除しました'
       no_result: 'ブックマーク中のWebアプリがありません。'
   static_pages:
