@@ -16,12 +16,21 @@ class MypagesController < ApplicationController
 
   def setting_notify
     @user = current_user
-    if @user.update(notify_time_params)
-      redirect_to notification_mypage_path, success: t('defaults.message.notify_registed')
+    time_params = notify_time_params
+    time_params["notify_time(5i)"] = "00"
+
+    if @user.update(time_params)
+      redirect_to mypage_path, success: t('defaults.message.notify_registed')
     else
       flash.now[:danger] = t('defaults.message.notify_not_registed')
       render :notification, status: :unprocessable_entity
     end
+  end
+
+  def remove_notify
+    @user = current_user
+    @user.update(notify_time: nil)
+    redirect_to mypage_path, success: t('defaults.message.notify_removed')
   end
 
   private

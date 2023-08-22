@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       get :bookmark
       get :notification
       post :setting_notify
+      delete :remove_notify
     end
   end
   resources :bookmarks, only: %i[create destroy]

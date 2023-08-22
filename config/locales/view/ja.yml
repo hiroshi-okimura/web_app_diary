@@ -11,11 +11,13 @@ ja:
     update: "更新"
     back: "戻る"
     review: "記録"
+    save: "保存"
     todayapp: "今日のWebアプリ"
     appindex: "Webアプリ一覧"
     mypage: "マイページ"
     bookmark: "ブックマーク"
     notification: "通知設定"
+    remove_notification: "通知時刻の設定を解除する"
     message: 
       not_authorized: '権限がありません'
       not_authorized_line_user: "LINEログインのユーザーはプロフィールを編集できません。"
@@ -27,8 +29,8 @@ ja:
       not_updated: '%{item}を更新出来ませんでした'
       notify_registed: '通知時刻を登録しました。'
       notify_not_registed: '通知時刻の登録が出来ませんでした。'
-      notify_updated: "通知時刻を更新しました"
-      notify_not_updated: '通知時刻を更新出来ませんでした'
+      notify_remove_confirm: "通知時刻の設定を解除しますか？"
+      notify_removed: "通知時刻の設定を解除しました"
       deleted: '%{item}を削除しました'
       no_result: 'ブックマーク中のWebアプリがありません。'
   static_pages:
