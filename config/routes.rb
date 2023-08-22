@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resource :mypage, only: %i[show] do
     collection do
       get :bookmark
+      get :notification
     end
   end
   resources :bookmarks, only: %i[create destroy]

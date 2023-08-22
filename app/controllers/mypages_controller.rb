@@ -9,4 +9,8 @@ class MypagesController < ApplicationController
   def bookmark
     @bookmark_web_apps = current_user.bookmark_web_apps.order(created_at: :desc)
   end
+
+  def notification
+    @user = current_user
+  end
 end

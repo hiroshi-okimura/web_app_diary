@@ -15,6 +15,7 @@ ja:
     appindex: "Webアプリ一覧"
     mypage: "マイページ"
     bookmark: "ブックマーク"
+    notification: "通知設定"
     message: 
       not_authorized: '権限がありません'
       not_authorized_line_user: "LINEログインのユーザーはプロフィールを編集できません。"
@@ -31,6 +32,9 @@ ja:
       title: "プライバシーポリシー"
     terms:
       title: "利用規約"
+  mypages:
+    notification:
+      title: "通知設定"
   admin:
     web_apps:
       index:
