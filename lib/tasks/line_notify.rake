@@ -6,7 +6,12 @@ namespace :line_notify do
       config.channel_token = ENV['LINE_CHANNEL_TOKEN']
     }
 
-    current_hour_utc = Time.current.utc.hour
+    # UTC時間に9時間を加算して日本時間を取得
+    current_hour_jst = (Time.current.utc.hour + 9) % 24
+
+    # 日本時間をUTCに変換
+    current_hour_utc = (current_hour_jst - 9) % 24
+    
     users_to_notify = User.where("EXTRACT(HOUR FROM notify_time AT TIME ZONE 'UTC') = ?", current_hour_utc)
     users_to_notify.each do |user|
       message = {
