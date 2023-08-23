@@ -194,6 +194,7 @@ GEM
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
     language_server-protocol (3.17.0.3)
+    line-bot-api (1.28.0)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -421,6 +422,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   kaminari
+  line-bot-api
   meta-tags
   mini_magick
   omniauth-line

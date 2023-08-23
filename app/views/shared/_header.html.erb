@@ -26,7 +26,9 @@
               <li>
                 <%= link_to t('defaults.bookmark'), bookmark_mypage_path, class: "justify-between" %>
               </li>
-              <li><a>通知設定（未実装）</a></li>
+              <li>
+                <%= link_to t('defaults.notification'), notification_mypage_path, class: "justify-between" %>
+              </li>
               <li>
                 <%= link_to t('defaults.logout'), destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
               </li>

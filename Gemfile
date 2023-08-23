@@ -102,3 +102,5 @@ gem 'meta-tags'
 gem 'kaminari'
 
 gem "simple_calendar", "~> 2.4"
+
+gem 'line-bot-api'

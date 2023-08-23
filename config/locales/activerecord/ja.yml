@@ -12,10 +12,14 @@ ja:
       review: 'レビュー'
     attributes:
       user:
+        id: 'ID'
         name: 'ユーザー名'
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
+        role: '権限'
+        provider: 'プロバイダー'
+        notify_time: '通知時間'
       web_app:
         site_name: 'Webアプリ名'
         url: 'URL'
