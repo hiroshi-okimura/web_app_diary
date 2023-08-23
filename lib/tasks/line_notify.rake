@@ -11,9 +11,11 @@ namespace :line_notify do
 
     # 日本時間をUTCに変換
     current_hour_utc = (current_hour_jst - 9) % 24
-    
+
     users_to_notify = User.where("EXTRACT(HOUR FROM notify_time AT TIME ZONE 'UTC') = ?", current_hour_utc)
     users_to_notify.each do |user|
+      next unless user.uid # user.uidがnilや空の場合は次のループへ
+      
       message = {
         type: 'text',
         text: "新しいWebアプリが提供されています!\n確認しましょう!(PC推奨です)\n\nhttps://web-app-diary-387ded82e725.herokuapp.com/"
