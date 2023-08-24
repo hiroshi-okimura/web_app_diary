@@ -37,7 +37,7 @@
     </div>
     <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
       <div class="text-center mt-1">
-        <%= link_to "パスワードをお忘れの方はこちら(未実装)", "#", class: "link link-info text-center text-sm" %><br />
+        <%= link_to "パスワードをお忘れの方はこちら", new_user_password_path, class: "link link-info text-center text-sm" %><br />
       </div>
     <% end %>
   </div>
