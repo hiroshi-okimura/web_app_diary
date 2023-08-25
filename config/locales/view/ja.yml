@@ -2,6 +2,9 @@ ja:
   defaults:
     login: "ログイン"
     logout: "ログアウト"
+    password_reset: "パスワード再設定"
+    change_password: "パスワード変更"
+    new_password: "新しいパスワード"
     index: "一覧"
     new: "作成"
     show: "詳細"
