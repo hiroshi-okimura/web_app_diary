@@ -1,33 +1,29 @@
 <% content_for(:title, t('.title')) %>
 <div class="mx-6">
   <h1 class="sm:text-xl md:text-2xl text-gray-800 py-2 font-zenmaru text-center font-bold"><%= t('.title') %></h1>
-  <p class="mb-4 text-center sm:text-xl text-red-500 md:mb-4 xl:mb-2">※LINE通知を受け取るには、お手数ですが以下のStep1, 2を実施の上、通知時刻を設定してください。</p>
-  <section class="text-gray-600 body-font">
-    <div class="container px-5 py-12 mx-auto">
-      <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto">
-        <h1 class="text-2xl font-medium title-font pr-4 text-gray-900">Step1</h1>
-        <span class="text-gray-900">LINEアカウントでログインする。</span>
+  <p class="mb-4 text-center text-sm md:text-xl text-red-500 md:mb-4 xl:mb-2">※LINE通知を受け取るには、お手数ですが以下のStep1, 2を実施の上、通知時刻を設定してください。</p>
+    <div class="container mx-auto">
+      <div class="flex justify-center items-center md:flex-row flex-col">
+        <span class="text-2xl lg:text-3xl font-medium title-font md:pr-4 text-gray-900">Step1 : </span>
+        <span class="lg:text-xl text-gray-900 my-1 md:mx-0">LINEアカウントでログインする。</span>
         <% if @user.provider == "line" %>
-          <button class="btn ml-4" disabled>ログイン済み</button>
+          <button class="btn md:ml-4" disabled>ログイン済み</button>
         <% else %>
-          <%= link_to "一度ログアウトする", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "btn ml-4" %>
+          <%= link_to "一度ログアウトする", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "btn md:ml-4" %>
         <% end %>
       </div>
     </div>
-  </section>
-  <section class="text-gray-600 body-font">
-    <div class="container px-5 py-12 mx-auto">
-      <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto">
-        <h1 class="text-2xl font-medium title-font pr-4 text-gray-900">Step2</h1>
-        <span class="text-gray-900">公式アカウントを友達追加する。</span>
-        <div class="w-36 ml-4">
+    <div class="container mx-auto">
+      <div class="flex justify-center items-center md:flex-row flex-col">
+        <span class="text-2xl lg:text-3xl font-medium title-font md:pr-4 md:pl-6 text-gray-900">Step2 : </span>
+        <span class="lg:text-xl text-gray-900 my-1 md:mx-0">公式アカウントを友達追加する。</span>
+        <div class="w-36 md:ml-4">
           <a href="https://lin.ee/hx6fPIE">
             <img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0" class="shadow-lg">
           </a>
         </div>
       </div>
     </div>
-  </section>
   <div class="flex justify-center my-12">
     <div class="border px-4 w-64 rounded-lg shadow-lg flex flex-col mt-4">
       <%= form_with(model: @user, url: setting_notify_mypage_path, method: :post, local: true) do |f| %>
