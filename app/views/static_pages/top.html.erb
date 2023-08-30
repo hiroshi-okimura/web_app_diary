@@ -1,4 +1,4 @@
-<section class="text-gray-600 body-font py-24">
+<section class="md:mb-16 py-32 text-gray-600 body-font">
   <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
     <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-8 md:mb-0 items-center text-center">
       <h1 class="title-font sm:text-7xl text-5xl lg:mb-8 mb-4 font-medium text-indigo-500">Web App Diary</h1>
@@ -16,62 +16,57 @@
     </div>
   </div>
 </section>
-
-<section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="flex flex-wrap w-full mb-10 flex-col items-center text-center">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">このアプリでできること（準備中）</h1>
-    </div>
-    <div class="flex flex-wrap -m-4">
-      <div class="md:w-1/2 p-4">
-        <div class="border border-gray-200 p-6 rounded-lg">
-          <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-            </svg>
-          </div>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">1日1Webアプリ提供</h2>
-          <p class="leading-relaxed text-base">1日1つ、あなたが体験するWebアプリを提供します。</p>
-        </div>
+<section class="bg-indigo-100">
+  <div class="container mx-auto">
+    <h1 class="text-3xl text-center md:py-8 md:mb-12"><span class="text-indigo-500 font-bold">WebAppDiary</span>でできること</h1>
+    <div class="flex md:items-center md:flex-row flex-col mt-12 md:mb-64 mb-32">
+      <div class="md:flex-1 pr-10">
+        <%= image_tag "site_check.png", class: "w-16 h-16 my-2" %>
+        <h1 class="text-3xl my-2">1日1Webアプリ提供</h1>
+        <p class="text-gray-500 md:mb-0 mb-8">世の中に無数にあるWebアプリを探すのは大変と思ったことはありませんか？
+        <br><span class="text-indigo-500">WebAppDiary</span>は、1日1つ、あなたが体験するWebアプリを提供します。</p>
       </div>
-      <div class="md:w-1/2 p-4">
-        <div class="border border-gray-200 p-6 rounded-lg">
-          <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-              <circle cx="6" cy="6" r="3"></circle>
-              <circle cx="6" cy="18" r="3"></circle>
-              <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
-            </svg>
-          </div>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">アプリに対する評価を記録</h2>
-          <p class="leading-relaxed text-base">ユーザービリティ・オリジナリティ・デザインについて評価することができます。</p>
-        </div>
-      </div>
-      <div class="md:w-1/2 p-4">
-        <div class="border border-gray-200 p-6 rounded-lg">
-          <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-          </div>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">LINE通知設定</h2>
-          <p class="leading-relaxed text-base">記録忘れ防止のために、任意のタイミングでLINE通知を設定することができます。</p>
-        </div>
-      </div>
-      <div class="md:w-1/2 p-4">
-        <div class="border border-gray-200 p-6 rounded-lg">
-          <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"></path>
-            </svg>
-          </div>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">キャラクターの育成</h2>
-          <p class="leading-relaxed text-base">提供された日のうちの記録を継続することで、キャラクターが成長します。</p>
-        </div>
+      <div class="md:flex-1">
+        <%= image_tag "site_screenshot.png", class: "rounded border shadow-lg" %>
       </div>
     </div>
-    <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+    <div class="flex md:items-center md:flex-row flex-col mt-24 md:mb-64 mb-32">
+      <div class="md:flex-1 pr-10">
+        <%= image_tag "site_review.png", class: "w-16 h-16 my-2" %>
+        <h1 class="text-3xl my-2">体験したWebアプリを記録できる</h1>
+        <p class="text-gray-500 md:mb-0 mb-8">体験したWebアプリを、ユーザービリティ・オリジナリティ・デザインについて評価することができます。
+        <br>また、記録にはコメントを残すことができ、後から当時どんな感想をしていたか振り返ることができます。</p>
+      </div>
+      <div class="md:flex-1">
+        <%= image_tag "screenshot_review.png", class: "rounded border shadow-lg" %>
+      </div>
+    </div>
+    <div class="flex md:items-center md:flex-row flex-col mt-24 md:mb-64 mb-32">
+      <div class="md:flex-1 pr-10">
+        <%= image_tag "calender.png", class: "w-16 h-16 my-2" %>
+        <h1 class="text-3xl my-2">記録したWebアプリをカレンダーで確認</h1>
+        <p class="text-gray-500 md:mb-0 mb-8">記録したWebアプリを、カレンダーで確認することができます。
+        <br>表示されているWebアプリ名をクリックすると、詳細ページへ遷移します。</p>
+      </div>
+      <div class="md:flex-1">
+        <%= image_tag "screenshot_calender.png", class: "rounded border shadow-lg" %>
+      </div>
+    </div>
+    <div class="flex md:items-center md:flex-row flex-col mt-24 mb-32">
+      <div class="md:basis-1/2 pr-10">
+        <%= image_tag "notify.png", class: "w-16 h-16 my-2" %>
+        <h1 class="text-3xl my-2">好きな時間帯にLINE通知設定</h1>
+        <p class="text-gray-500 md:mb-0 mb-8">記録忘れ防止のために、任意のタイミング（1時間単位）でLINE通知を受け取る設定ができます。
+        <br>※LINE通知を受け取るには、LINEログインと公式アカウントの友達追加が必要となります。</p>
+      </div>
+      <div class="md:basis-1/4">
+        <%= image_tag "line_notify.jpg", class: "rounded border shadow-lg mr-2" %>
+      </div>
+      <div class="hidden md:block md:basis-1/4">
+        <%= image_tag "mobile_top.jpg", class: "rounded border shadow-lg ml-2" %>
+      </div>
+    </div>
+    <button class="flex mx-auto mb-24 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
       <%= link_to "今日のWebアプリを見てみる", todayapp_web_apps_path %>
     </button>
   </div>
