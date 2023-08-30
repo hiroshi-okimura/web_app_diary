@@ -18,7 +18,7 @@ namespace :line_notify do
 
       message = {
         type: 'text',
-        text: "新しいWebアプリが提供されています!\n確認しましょう!(PC推奨です)\n\nhttps://web-app-diary-387ded82e725.herokuapp.com/"
+        text: "新しいWebアプリが提供されています!\n確認しましょう!\n\nhttps://web-app-diary-387ded82e725.herokuapp.com/"
       }
       response = client.push_message(user.uid, message)
       p response

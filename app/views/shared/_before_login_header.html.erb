@@ -1,9 +1,25 @@
 <nav class="bg-gray-800">
   <div class="flex flex-wrap items-center justify-between mx-auto p-4">
     <%= link_to root_path, class: "flex items-center text-blue-400" do %>
-      <%= image_tag "header_logo.png", class: "h-8 mr-3" %>
-      <span class="self-center text-2xl font-semibold whitespace-nowrap">WebAppDiary</span>
+      <%= image_tag "header_logo.png", class: "md:h-8 md:mr-3 h-6 mr-1" %>
+      <span class="self-center md:text-2xl font-semibold whitespace-nowrap">WebAppDiary</span>
     <% end %>
+
+    <!-- モバイルサイズでの表示 -->
+    <div class="flex items-center md:hidden dropdown dropdown-end">
+      <label tabindex="0">
+        <%= image_tag "header_menu.png", class: "h-6" %>
+      </label>
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-24 z-[1] p-2 shadow bg-base-100 rounded-box w-50">
+        <li>
+          <%= link_to t('defaults.login'), new_user_session_path, class: "justify-between" %>
+        </li>
+        <li>
+          <%= link_to t('defaults.register'), new_user_registration_path, class: "justify-between" %>
+        </li>
+      </ul>
+    </div>
+
     <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
       <ul class="flex flex-col items-center font-medium p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0 md:border-0">
         <li>

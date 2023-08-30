@@ -1,8 +1,10 @@
-<div class="mx-auto mb-4 p-8 bg-gray-300 grid grid-cols-3 items-center justify-items-center">
-  <div class="col-start-2 text-center md:text-2xl lg:text-4xl text-blue-600">今日のWebアプリ</div>
-  <div class="col-start-3 text-right text-slate-500 hover:text-blue-600">
-    <%= link_to "過去に提供されたWebアプリ一覧", web_apps_path unless user_signed_in? %>
-  </div>
+<div class="mx-auto mb-4 md:p-8 p-4 bg-gray-300 grid md:grid-cols-3 items-center justify-items-center">
+  <div class="md:col-start-2 text-center text-2xl lg:text-4xl text-blue-600">今日のWebアプリ</div>
+  <% unless user_signed_in? %>
+    <div class="md:col-start-3 lg:text-base md:text-sm text-xs text-right text-slate-500 hover:text-blue-600 mt-3">
+      <%= link_to "過去に提供されたWebアプリ一覧", web_apps_path %>
+    </div>
+  <% end %>
 </div>
 
 <%= render "web_apps/layout", web_app: @web_app %>
