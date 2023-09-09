@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_22_061930) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_01_081026) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_061930) do
     t.boolean "is_counted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "webapp_offer_date"
     t.index ["user_id"], name: "index_reviews_on_user_id"
     t.index ["web_app_id"], name: "index_reviews_on_web_app_id"
   end

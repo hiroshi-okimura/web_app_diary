@@ -17,7 +17,11 @@
       <div class="mt-auto flex items-end justify-between">
         <div class="flex items-center gap-2">
           <div>
-            <span class="block text-indigo-500">提供日</span>
+            <% if web_app.offer_date > Date.today %>
+              <span class="block text-indigo-500">次回提供日</span>
+            <% else %>
+              <span class="block text-indigo-500">提供日</span>
+            <% end %>       
             <span class="block text-sm text-gray-400"><%= web_app.offer_date %></span>
           </div>
         </div>
