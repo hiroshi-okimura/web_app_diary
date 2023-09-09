@@ -91,7 +91,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  host = 'https://web-app-diary-387ded82e725.herokuapp.com/'
+  host = 'https://www.webappdiary.com/'
   config.action_mailer.default_url_options = { protocol: 'https', host: host }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
