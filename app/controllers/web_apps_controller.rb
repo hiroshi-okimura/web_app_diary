@@ -17,6 +17,6 @@ class WebAppsController < ApplicationController
   end
 
   def set_review
-    @review = @web_app.reviews.find_by(user_id: current_user.id)
+    @review = @web_app.reviews.find_by(user_id: current_user.id, webapp_offer_date: @web_app.offer_date)
   end
 end

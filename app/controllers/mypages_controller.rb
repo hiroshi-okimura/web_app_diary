@@ -3,7 +3,9 @@ class MypagesController < ApplicationController
 
   def show
     start_date = params.fetch(:start_date, Date.today).to_date
-    @web_apps_with_reviews = WebApp.joins(:reviews).where(reviews: { user_id: current_user.id }).where(offer_date: start_date.beginning_of_month..start_date.end_of_month)
+    @reviews = Review.includes(:web_app)
+                     .where(user_id: current_user.id)
+                     .where(webapp_offer_date: start_date.beginning_of_month..start_date.end_of_month)
   end
 
   def bookmark
