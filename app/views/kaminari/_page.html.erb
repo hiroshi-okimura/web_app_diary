@@ -1,9 +1,9 @@
 <% if page.current? %>
-  <li class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700">
-    <%= content_tag :a, page, data: { remote: remote }, rel: page.rel, class: 'page-link' %>
+  <li>
+    <%= content_tag :a, page, data: { remote: remote }, rel: page.rel, class: 'page-link flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700' %>
   </li>
 <% else %>
-  <li class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">
-    <%= link_to page, url, remote: remote, rel: page.rel, class: 'page-link' %>
+  <li>
+    <%= link_to page, url, remote: remote, rel: page.rel, class: 'page-link flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700' %>
   </li>
 <% end %>
