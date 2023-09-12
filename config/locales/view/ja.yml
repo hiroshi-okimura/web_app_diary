@@ -36,6 +36,7 @@ ja:
       notify_removed: "通知時刻の設定を解除しました"
       deleted: '%{item}を削除しました'
       no_result: 'ブックマーク中のWebアプリがありません。'
+      failed_screenshot: 'screenshotlayer APIからの応答の取得に失敗しました。'
   static_pages:
     privacy_policy:
       title: "プライバシーポリシー"

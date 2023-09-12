@@ -18,7 +18,7 @@ namespace :line_notify do
 
       message = {
         type: 'text',
-        text: "新しいWebアプリが提供されています!\n確認しましょう!\n\nhttps://www.webappdiary.com/web_apps/todayapp"
+        text: "新しいWebアプリが提供されています!\n確認しましょう!\n(通知を止めたい場合は、「通知設定」より設定解除してください)\n\nhttps://www.webappdiary.com/web_apps/todayapp"
       }
       response = client.push_message(user.uid, message)
       p response
