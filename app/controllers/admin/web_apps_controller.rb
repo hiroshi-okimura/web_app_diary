@@ -28,7 +28,33 @@ class Admin::WebAppsController < Admin::BaseController
     }
 
     screenshot_url = ScreenshotService.screenshotlayer(@web_app.url, options)
-    @web_app.remote_screenshot_url = screenshot_url
+
+    # APIからのレスポンスを取得
+    response = Net::HTTP.get_response(URI.parse(screenshot_url))
+
+    # レスポンスが成功しているかどうかを確認
+    if response.is_a?(Net::HTTPSuccess)
+      # レスポンスボディがJSONかどうかを確認
+      if response.body.start_with?('{')
+        # JSONを解析
+        json_response = JSON.parse(response.body)
+
+        # エラーメッセージが存在する場合、それを表示
+        if json_response["success"] == false && json_response["error"]
+          flash.now[:danger] = json_response["error"]["info"]
+          render :new, status: :unprocessable_entity
+          return
+        end
+      else
+        # スクリーンショットなど、JSON以外のレスポンスを正常として処理
+        @web_app.remote_screenshot_url = screenshot_url
+      end
+    else
+      # レスポンスが成功していない場合のエラーハンドリング
+      flash.now[:danger] = t('defaults.failed_screenshot')
+      render :new, status: :unprocessable_entity
+      return
+    end
 
     if @web_app.save
       redirect_to admin_web_apps_path, success: t('defaults.message.registed', item: WebApp.model_name.human)
