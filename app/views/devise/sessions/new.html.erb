@@ -33,6 +33,12 @@
             <br />
           <% end %>
         </div>
+        <div class="flex items-center justify-center">
+          <span class="relative bg-white px-4 text-sm text-red-400">※URLが「〜herokuapp.com」の場合は、LINEログインでエラーになる可能性があるため、下記のURLにて再度お試しください。</span>
+        </div>
+        <div class="flex items-center justify-center">
+          <%= link_to "https://www.webappdiary.com/users/sign_in", "https://www.webappdiary.com/users/sign_in", class: "link link-info text-center text-sm" %>
+        </div>
       </div>
       <div class="flex items-center justify-center bg-gray-100 p-4">
         <%= link_to "新規登録はこちら", new_registration_path(resource_name), class: "link link-info text-center text-sm" %><br />
