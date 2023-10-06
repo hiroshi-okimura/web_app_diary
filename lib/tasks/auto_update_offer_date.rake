@@ -1,10 +1,10 @@
 namespace :web_apps do
   desc "特定のweb_appのoffer_dateを更新"
   task update_offer_date: :environment do
-    # 今日の日付から70日前の日付を取得
-    target_date = Date.today - 70.days
+    # 今日の日付から100日前の日付を取得
+    target_date = Date.today - 100.days
 
-    # 70日前に提供されたアプリを探す
+    # 100日前に提供されたアプリを探す
     web_app_to_update = WebApp.find_by(offer_date: target_date)
 
     # 今あるweb_appの中で、一番遠くの日付を取得
