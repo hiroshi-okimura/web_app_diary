@@ -19,15 +19,17 @@
     </div>
   </div>
 
-  <h2 class="my-4 text-center text-xl font-bold text-gray-800 md:mb-6 lg:text-2xl pb-2 border-b-2">記録カレンダー</h2>
-  <%= month_calendar(events: @reviews) do |date, reviews| %>
-    <%= date.day %>
+  <%= turbo_frame_tag "calendar" do %>
+    <h2 class="my-4 text-center text-xl font-bold text-gray-800 md:mb-6 lg:text-2xl pb-2 border-b-2">記録カレンダー</h2>
+    <%= month_calendar(events: @reviews) do |date, reviews| %>
+      <%= date.day %>
 
-    <% if date <= Date.today %>
-      <% reviews.each do |review| %>
-        <div>
-          <%= link_to review.web_app.site_name, web_app_path(review.web_app), class:"text-blue-500" %>
-        </div>
+      <% if date <= Date.today %>
+        <% reviews.each do |review| %>
+          <div>
+            <%= link_to review.web_app.site_name, web_app_path(review.web_app), data: { turbo: false }, class:"text-blue-500" %>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
