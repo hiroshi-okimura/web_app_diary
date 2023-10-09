@@ -1,6 +1,6 @@
   <!-- article - start -->
   <div class="flex flex-col overflow-hidden rounded-lg border bg-white">
-    <%= link_to web_app_path(web_app), class: "group relative block h-48 overflow-hidden bg-gray-100 md:h-64" do %>
+    <%= link_to web_app_path(web_app), data: { turbo: false } , class: "group relative block h-48 overflow-hidden bg-gray-100 md:h-64" do %>
       <%= image_tag web_app.ogp_image, alt: "OPG画像", class: "absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110 border-b" %>
     <% end %>
 
@@ -36,5 +36,3 @@
     </div>
   </div>
   <!-- article - end -->
-
-
