@@ -7,15 +7,15 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-30.times do |n|
+60.times do |n|
   WebApp.create(
-    site_name: "サイト#{n + 28}",
-    url: "https://www.site#{n + 28}.com",
-    ogp_title: "サイト#{n + 28}のOGPタイトル",
-    ogp_description: "サイト#{n + 28}のOGPディスクリプション",
+    site_name: "サイト#{n + 101}",
+    url: "https://www.site#{n + 101}.com",
+    ogp_title: "サイト#{n + 101}のOGPタイトル",
+    ogp_description: "サイト#{n + 101}のOGPディスクリプション",
     ogp_image: "ogp_image.png",
     screenshot: "not_found.png",
-    offer_date: Date.new(2023, 9, 1) + n.days,
+    offer_date: Date.new(2023, 10, 3) + n.days,
     status: 0
   )
 end

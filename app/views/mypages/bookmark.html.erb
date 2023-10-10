@@ -7,9 +7,14 @@
     <!-- text - end -->
 
   <% if @bookmark_web_apps.present? %>
-    <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
-      <%= render @bookmark_web_apps %>
-    </div>
+    <%= turbo_frame_tag 'web_apps' do %>
+      <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
+        <%= render @bookmark_web_apps %>
+      </div>
+      <div class="text-center mt-8 md:text-xl">
+        <%= paginate @bookmark_web_apps %>
+      </div>
+    <% end %>
   <% else %>
     <p class="text-center"><%= t('defaults.message.no_result') %></p>
   <% end %>

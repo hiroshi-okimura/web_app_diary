@@ -8,13 +8,15 @@
     </div>
     <!-- text - end -->
 
-    <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
+    <%= turbo_frame_tag 'web_apps' do %>
+      <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
 
-    <%= render @web_apps %>
+        <%= render @web_apps %>
 
-    </div>
-    <div class="text-center mt-8 md:text-xl">
-      <%= paginate @web_apps %>
-    </div>
+      </div>
+      <div class="text-center mt-8 md:text-xl">
+        <%= paginate @web_apps %>
+      </div>
+    <% end %>
   </div>
 </div>
