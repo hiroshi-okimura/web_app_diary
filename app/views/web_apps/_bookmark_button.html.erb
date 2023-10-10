@@ -1,8 +1,10 @@
 <% if user_signed_in? %>
-  <% if current_user.bookmark?(web_app) %>
-    <%= render 'unbookmark', { web_app: web_app } %>
-  <% else %>
-    <%= render 'bookmark', { web_app: web_app } %>
+  <%= turbo_frame_tag "bookmark_button" do %>
+    <% if current_user.bookmark?(web_app) %>
+      <%= render 'web_apps/unbookmark', { web_app: web_app } %>
+    <% else %>
+      <%= render 'web_apps/bookmark', { web_app: web_app } %>
+    <% end %>
   <% end %>
 <% else %>
   <%= render 'bookmark', { web_app: web_app } %>
