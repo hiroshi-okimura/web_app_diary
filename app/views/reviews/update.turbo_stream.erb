@@ -1,0 +1,5 @@
+<%= turbo_stream.replace "review" do %>
+  <%= render partial: "web_apps/review_stars/review",
+             locals: { web_app: @web_app, review: @review } %>
+<% end %>
+<%= turbo_stream.update "flash", partial: "shared/flash_message" %>

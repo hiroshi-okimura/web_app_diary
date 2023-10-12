@@ -1,4 +1,5 @@
 <div class="bg-white py-6 sm:py-8 lg:py-12">
+  <%= turbo_frame_tag "review" do %>
   <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
     <% if user_signed_in? %>     
       <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-6"><%= "#{current_user.name}さんの評価結果" %></h2>
@@ -86,17 +87,18 @@
       </div>
       <!-- comment - end -->
       <div class="text-right">
-        <%= link_to edit_web_app_review_path(@web_app, @review) do %>
+        <%= link_to edit_web_app_review_path(@web_app, @review), data: { turbo_frame: "modal" } do %>
           <button class="btn btn-sm btn-outline btn-info mt-2 shadow-md">レビューを編集する</button>
         <% end %>
       </div>
     <% else %>
       <div class="text-center">
         <p class="text-gray-600">まだレビューがありません。</p>
-        <%= link_to new_web_app_review_path(@web_app) do %>
+        <%= link_to new_web_app_review_path(@web_app), data: { turbo_frame: "modal" } do %>
           <button class="btn btn-sm btn-outline btn-info m-4">レビューする</button>
         <% end %>  
       </div>
     <% end %>
   </div>
+  <% end %>
 </div>

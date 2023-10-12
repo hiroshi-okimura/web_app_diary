@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     @review = @web_app.reviews.build(review_params)
     @review.user_id = current_user.id
     if @review.save
-      redirect_to web_app_path(@web_app), success: t('defaults.message.registed', item: Review.model_name.human)
+      flash.now.notice = t('defaults.message.registed', item: Review.model_name.human)
     else
       flash.now[:danger] = t('defaults.message.not_registed', item: Review.model_name.human)
       render :edit, status: :unprocessable_entity
@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      redirect_to web_app_path(@web_app), success: t('defaults.message.updated', item: Review.model_name.human)
+      flash.now.notice = t('defaults.message.updated', item: Review.model_name.human)
     else
       flash.now[:danger] = t('defaults.message.not_updated', item: Review.model_name.human)
       render :edit, status: :unprocessable_entity
