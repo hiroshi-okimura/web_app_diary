@@ -1,0 +1,13 @@
+<!-- モーダルの内容 -->
+<%= turbo_frame_tag 'modal' do %>
+  <div data-controller="modal">
+    <div data-modal-target="modal" class="fixed top-0 left-0 w-full h-full flex items-center justify-center">
+      <!-- オーバーレイ -->
+      <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+
+      <div class="z-10 w-4/5">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+<% end %>

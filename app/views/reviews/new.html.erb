@@ -1,2 +1,6 @@
 <!-- app/views/reviews/new.html.erb -->
-<%= render 'form' %>
+<%= render "shared/modal", title: "編集" do %>
+  <%= turbo_frame_tag "review" do %>
+    <%= render 'form' %>
+  <% end %>
+<% end %>
