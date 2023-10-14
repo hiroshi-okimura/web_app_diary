@@ -56,6 +56,9 @@ class Admin::WebAppsController < Admin::BaseController
       return
     end
 
+    ogp = OgpCreator.build(@web_app.site_name)
+    @web_app.this_ogp = ogp
+
     if @web_app.save
       redirect_to admin_web_apps_path, success: t('defaults.message.registed', item: WebApp.model_name.human)
     else
