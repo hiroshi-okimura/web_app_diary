@@ -6,6 +6,9 @@ namespace :line_notify do
       config.channel_token = ENV['LINE_CHANNEL_TOKEN']
     end
 
+    today_web_app = WebApp.today_app
+    url = "https://www.webappdiary.com/web_apps/#{today_web_app.id}"
+
     # UTC時間に9時間を加算して日本時間を取得
     current_hour_jst = (Time.current.utc.hour + 9) % 24
 
@@ -18,7 +21,7 @@ namespace :line_notify do
 
       message = {
         type: 'text',
-        text: "新しいWebアプリが提供されています!\n確認しましょう!\n(通知を止めたい場合は、「通知設定」より設定解除してください)\n\nhttps://www.webappdiary.com/web_apps/todayapp"
+        text: "新しいWebアプリが提供されています!\n確認しましょう!\n(通知を止めたい場合は、「通知設定」より設定解除してください)\n\n#{url}"
       }
       response = client.push_message(user.uid, message)
       p response

@@ -7,4 +7,8 @@ class WebApp < ApplicationRecord
   validates :site_name, presence: true
   validates :url, presence: true, uniqueness: true
   validates :status, presence: true
+
+  def self.today_app
+    find_by(offer_date: Date.today)
+  end
 end
