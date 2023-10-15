@@ -36,6 +36,10 @@
           <td><%= image_tag @web_app.ogp_image, class: "border border-black", width: '240' %></td>
         </tr>
         <tr>
+          <th scope="row"><%= WebApp.human_attribute_name(:this_ogp) %></th>
+          <td><%= image_tag @web_app.this_ogp.url, class: "border border-black", width: '240' %></td>
+        </tr>
+        <tr>
           <th scope="row"><%= WebApp.human_attribute_name(:offer_date) %></th>
           <td><%= @web_app.offer_date %></td>
         </tr>

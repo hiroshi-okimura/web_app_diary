@@ -29,6 +29,7 @@ ja:
         screenshot: 'スクリーンショット'
         offer_date: '提供日'
         id: 'ID'
+        this_ogp: '動的OGP'
       review:
         comment: 'コメント'
         originality_score: 'オリジナリティスコア'
