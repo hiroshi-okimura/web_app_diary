@@ -94,9 +94,15 @@
     <% else %>
       <div class="text-center">
         <p class="text-gray-600">まだレビューがありません。</p>
-        <%= link_to new_web_app_review_path(@web_app), data: { turbo_frame: "modal" } do %>
-          <button class="btn btn-sm btn-outline btn-info m-4">レビューする</button>
-        <% end %>  
+        <% if user_signed_in? %>
+          <%= link_to new_web_app_review_path(@web_app), data: { turbo_frame: "modal" } do %>
+            <button class="btn btn-sm btn-outline btn-info m-4">レビューする</button>
+          <% end %>  
+        <% else %>
+          <%= link_to new_web_app_review_path(@web_app), data: { turbo: false } do %>
+            <button class="btn btn-sm btn-outline btn-info m-4">レビューする</button>
+          <% end %>  
+        <% end %>
       </div>
     <% end %>
   </div>
