@@ -5,7 +5,7 @@ module ApplicationHelper
       title: 'WebAppDiary -1日1アプリ提供&記録サービス-',
       reverse: true,
       charset: 'utf-8',
-      description: '個人開発の参考としてUI/UXの情報収集を継続的に行いたい人のための、 1日1Webアプリ提供&記録サービスです。',
+      description: '個人開発の参考として、デザイン・機能・導線などUI/UXの情報収集を継続的に行いたい人に向けた、 1日1Webサービス提供&記録ができるWebアプリです。',
       keywords: 'Webアプリ,UI/UX,個人開発,情報収集,日記,記録,1日1アプリ,Webアプリまとめ,Webアプリ 一覧',
       canonical: request.original_url,
       separator: '|',
