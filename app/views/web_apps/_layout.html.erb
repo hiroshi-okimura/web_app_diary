@@ -39,11 +39,11 @@
   <%= render "web_apps/review_stars/review", web_app: web_app %>
   <div class="bg-white md:px-8 px-4 py-6 sm:py-8 lg:py-12">
     <h1 class="font-bold text-xl lg:text-2xl">みんなの反応</h1>
-    <div class="bg-indigo-100 mx-auto max-w-screen-2xl py-4 px-4 md:px-8 rounded-md">
+    <div class="bg-indigo-100 mx-auto max-w-screen-2xl py-4 px-4 md:px-8 rounded-md" id="comments">
       <% if @web_app.reviews.any? { |review| review.comment.present? } %>
         <% @web_app.reviews.each do |review| %>
           <% if review.comment.present? %>
-            <div class="chat chat-start py-4">
+            <div class="chat chat-start py-4" id="comment-<%= review.id %>">
               <div class="chat-image avatar">
                 <div class="w-10 rounded-full">
                   <%= image_tag "robot.png" %>
@@ -54,7 +54,9 @@
           <% end %>
         <% end %>
       <% else %>
-        <p class="py-8">まだコメントはありません。</p>
+        <div id="no-comments-message">
+          <p class="py-8">まだコメントはありません。</p>
+        </div>
       <% end %>
     </div>
   </div>
