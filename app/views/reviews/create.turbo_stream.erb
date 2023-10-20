@@ -2,4 +2,8 @@
   <%= render partial: "web_apps/review_stars/review",
              locals: { web_app: @web_app, review: @review } %>
 <% end %>
-<%= turbo_stream.update "flash", partial: "shared/flash_message" %>
+<% if @review.comment.present? %>
+  <%= turbo_stream.append "comments", partial: "web_apps/comment", locals: { review: @review } %>
+  <%= turbo_stream.remove "no-comments-message" %>
+<% end %>
+<%= turbo_stream.append "toast", partial: "shared/toast" %>

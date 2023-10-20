@@ -11,4 +11,8 @@ class WebApp < ApplicationRecord
   def self.today_app
     find_by(offer_date: Date.today)
   end
+
+  def bookmark_count
+    bookmarks.count
+  end
 end

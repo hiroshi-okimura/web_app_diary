@@ -1,4 +1,9 @@
+<%= turbo_stream.update "bookmark-count" do %>
+  <h1 class="font-bold text-xl lg:text-2xl" id="bookmark-count">
+    みんなのブックマーク数：<%= @web_app.bookmark_count %>
+  </h1>
+<% end %>
 <%= turbo_stream.replace "bookmark_button" do %>
   <%= render 'web_apps/bookmark_button', web_app: @web_app %>
 <% end %>
-<%= turbo_stream.update "flash", partial: "shared/flash_message" %>
+<%= turbo_stream.append "toast", partial: "shared/toast" %>

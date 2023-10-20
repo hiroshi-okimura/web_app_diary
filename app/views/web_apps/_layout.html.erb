@@ -2,6 +2,7 @@
                   twitter: { card: "summary_large_image", image: @web_app.this_ogp.url }) %>
 <div class="container">
   <div class="bg-white py-6 sm:py-8 lg:py-12">
+    <h1 class="font-bold text-xl lg:text-2xl px-4 md:px-8" id="bookmark-count"><%= "みんなのブックマーク数：#{@web_app.bookmark_count}" %></h1>
     <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
       <div class="flex flex-col overflow-hidden rounded-lg bg-gray-200 sm:flex-row md:h-80 shadow-lg">
         <!-- image - start -->
@@ -36,7 +37,32 @@
       <span class="self-center whitespace-nowrap">に体験したWebアプリをシェアしよう</span>
     <% end %>
   </div>
-  <%= render "web_apps/review_stars/review", web_app: web_app %>
+  <div class="bg-white py-6 sm:py-8 lg:py-12">
+    <%= render "web_apps/review_stars/review", web_app: web_app %>
+  </div>
+  <div class="bg-white md:px-8 px-4 py-6 sm:py-8 lg:py-12">
+    <h1 class="font-bold text-xl lg:text-2xl">みんなの反応</h1>
+    <div class="bg-indigo-100 mx-auto max-w-screen-2xl py-4 px-4 md:px-8 rounded-md" id="comments">
+      <% if @web_app.reviews.any? { |review| review.comment.present? } %>
+        <% @web_app.reviews.each do |review| %>
+          <% if review.comment.present? %>
+            <div class="chat chat-start py-4" id="comment-<%= review.id %>">
+              <div class="chat-image avatar">
+                <div class="w-10 rounded-full">
+                  <%= image_tag "robot.png" %>
+                </div>
+              </div>
+              <div class="chat-bubble"><%= review.comment %></div>
+            </div>
+          <% end %>
+        <% end %>
+      <% else %>
+        <div id="no-comments-message">
+          <p class="py-8">まだコメントはありません。</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
   <div class="bg-white py-6 sm:py-8 lg:py-12">
     <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
       <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-6">トップページのスクリーンショット</h2>
