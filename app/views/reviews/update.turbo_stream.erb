@@ -11,4 +11,4 @@
 <% else %>
   <%= turbo_stream.remove "comment-#{@review.id}" %>
 <% end %>
-<%= turbo_stream.update "flash", partial: "shared/flash_message" %>
+<%= turbo_stream.append "toast", partial: "shared/toast" %>
