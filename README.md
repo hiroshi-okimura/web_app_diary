@@ -7,7 +7,7 @@
 
 ## 【WebAppDiaryについて】
 ### ■サービス概要
-個人開発の参考として、デザイン・機能・導線などUI/UXの情報収集を継続的に行いたい人のための、 1日1Webアプリ提供＆記録サービスです。
+個人開発の参考として、デザイン・機能・導線などUI/UXの情報収集を継続的に行いたい人のための、 1日1Webアプリ提供＆記録サービスです。日めくりカレンダーのような形式で、1日に1つのWebアプリを紹介していきます。
 
 ### ■メインターゲットユーザー
 個人開発を行う予定があるプログラミング初学者
@@ -32,6 +32,7 @@
 - プロフィール編集機能（LINEログイン・ゲストログインユーザーはできません）
 - Webアプリの記録登録、編集機能
 - LINE通知機能
+- 動的OGP表示機能
 
 ### ■主な使用技術
 ### **バックエンド**
@@ -44,11 +45,13 @@
   - carrierwave
   - kaminari
   - simple_calendar
+  - mini_magick
 - API
   - LINE Messaging API
   - screenshotlayer API
 ### **フロントエンド**
 - Tailwind CSS
+- Hotwire
 ### **インフラ**
 - Heroku
 - Amazon S3
@@ -82,6 +85,7 @@ erDiagram
 	string ogp_image
 	string screenshot
 	date offer_date
+	string this_ogp
   }
   Reviews {
 	bigint id PK
