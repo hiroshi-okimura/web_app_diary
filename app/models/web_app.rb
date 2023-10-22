@@ -3,6 +3,8 @@ class WebApp < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   mount_uploader :screenshot, ScreenshotUploader
   mount_uploader :this_ogp, OgpImageUploader
+  has_many :tagmaps, dependent: :destroy
+  has_many :tags, through: :tagmaps
 
   validates :site_name, presence: true
   validates :url, presence: true, uniqueness: true
