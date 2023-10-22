@@ -27,10 +27,20 @@
         <% end %>
       </div>
 
-      <div class="mb-6">
+      <div class="mb-4">
         <%= f.label :comment, class: "block text-gray-700 text-sm font-bold mb-2" %>
         <%= f.text_area :comment, placeholder: "参考にしたいポイントなどをコメントしよう（任意）", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
       </div>
+
+      <div>
+        <%= f.label :tag_names, "タグ", class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.text_field :tag_names, placeholder: ",で区切ってタグ入力してください（任意）", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+
+      <div class="mb-6 text-sm text-gray-500">
+        ※アプリに登録したタグは、マイページで確認できます。
+      </div>
+
       <div class="flex justify-between items-center mt-4">
         <div class="actions mr-4">
           <%= f.submit t('defaults.review'), class: "bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
