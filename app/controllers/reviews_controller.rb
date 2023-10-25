@@ -10,7 +10,9 @@ class ReviewsController < ApplicationController
   def create
     @review = @web_app.reviews.build(review_params)
     @review.user_id = current_user.id
+    tag_names = params[:review][:tag_names].split(',')
     if @review.save
+      @web_app.save_tag(tag_names, current_user)
       flash.now.notice = t('defaults.message.registed', item: Review.model_name.human)
     else
       flash.now[:danger] = t('defaults.message.not_registed', item: Review.model_name.human)
