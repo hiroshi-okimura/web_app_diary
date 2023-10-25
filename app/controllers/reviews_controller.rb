@@ -20,10 +20,14 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @tag_list = @web_app.tags.where(tagmaps: { user_id: current_user.id }).pluck(:name).join(',')
+  end
 
   def update
+    tag_names = params[:review][:tag_names].split(',')
     if @review.update(review_params)
+      @web_app.save_tag(tag_names, current_user)
       flash.now.notice = t('defaults.message.updated', item: Review.model_name.human)
     else
       flash.now[:danger] = t('defaults.message.not_updated', item: Review.model_name.human)

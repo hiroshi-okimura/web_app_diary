@@ -19,13 +19,14 @@ class WebApp < ApplicationRecord
   end
 
   def save_tag(tag_names, user)
-    current_tags = self.tags.joins(:tagmaps).where(tagmaps: { user_id: user.id })
+    current_tags = self.tags.where(tagmaps: { user_id: user.id }).pluck(:name) || []
     new_tags = tag_names - current_tags
     old_tags = current_tags - tag_names
 
     # 古いタグを削除
     old_tags.each do |old_name|
-      self.tags.delete Tag.find_by(name: old_name)
+      tag = Tag.find_by(name: old_name)
+      Tagmap.where(web_app_id: self.id, tag_id: tag.id, user_id: user.id).destroy_all
     end
 
     # 新しいタグを追加
