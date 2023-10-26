@@ -1,7 +1,7 @@
 <% set_meta_tags( og: { image: @web_app.this_ogp.url, url: "https://webappdiary.com/web_apps/#{@web_app.id}" },
                   twitter: { card: "summary_large_image", image: @web_app.this_ogp.url }) %>
 <div class="container">
-  <div class="bg-white py-6 sm:py-8 lg:py-12">
+  <div class="bg-white py-6 sm:py-8">
     <h1 class="font-bold text-xl lg:text-2xl px-4 md:px-8" id="bookmark-count"><%= "みんなのブックマーク数：#{@web_app.bookmark_count}" %></h1>
     <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
       <div class="flex flex-col overflow-hidden rounded-lg bg-gray-200 sm:flex-row md:h-80 shadow-lg">
@@ -29,6 +29,18 @@
         <!-- content - end -->
       </div>
     </div>
+  </div>
+  <div class="bg-white pb-6 sm:pb-8 lg:pb-12 px-4 md:px-8">
+    <p class="font-bold text-indigo-500">このアプリに登録されているタグ</p>
+    <div class="mt-2">
+    <% if @unique_tags.present? %>
+      <% @unique_tags.each do |tag| %>
+        <div class="badge badge-primary"><%= tag.name %></div>
+      <% end %>
+    <% else %>
+      <p class="px-8 text-gray-400 text-xs md:text-base">まだこのWebアプリに登録されているタグはありません。</p>
+    <% end %>
+  </div>
   </div>
   <div class="flex w-full flex-col gap-2.5 mb-6 sm:flex-row sm:justify-center">
     <%= link_to "https://x.com/share?url=https://www.webappdiary.com/web_apps/#{@web_app.id}&text=【今日体験したWebアプリ】%0a「#{ web_app.site_name }」%0a %231日1アプリ%0a %231日1サービス%0a %23WebAppDiary%0a", target: '_blank',

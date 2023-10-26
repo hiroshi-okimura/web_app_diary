@@ -14,6 +14,7 @@ class WebAppsController < ApplicationController
 
   def set_web_app
     @web_app = action_name == 'todayapp' ? WebApp.includes(:reviews).find_by(offer_date: Date.today) : WebApp.includes(:reviews).find(params[:id])
+    @unique_tags = @web_app.tags.distinct
   end
 
   def set_review
