@@ -19,6 +19,19 @@
     </div>
   </div>
 
+  <div class="bg-white pb-6 sm:pb-8 lg:pb-12 px-4 md:px-8">
+    <p class="font-bold text-indigo-500">あなたが登録したタグ</p>
+    <div class="mt-2" id="tags">
+      <% if @my_tags.present? %>
+        <% @my_tags.each do |tag| %>
+            <div class="badge badge-secondary"><%= tag.name %></div>
+        <% end %>
+      <% else %>
+        <p class="px-8 text-gray-400 text-xs md:text-base">登録されているタグはありません。</p>
+      <% end %>
+    </div>
+  </div>
+
   <%= turbo_frame_tag "calendar" do %>
     <h2 class="my-4 text-center text-xl font-bold text-gray-800 md:mb-6 lg:text-2xl pb-2 border-b-2">記録カレンダー</h2>
     <%= month_calendar(events: @reviews) do |date, reviews| %>

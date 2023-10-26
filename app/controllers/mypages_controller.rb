@@ -6,6 +6,7 @@ class MypagesController < ApplicationController
     @reviews = Review.includes(:web_app)
                      .where(user_id: current_user.id)
                      .where(webapp_offer_date: start_date.beginning_of_month..start_date.end_of_month)
+    @my_tags = current_user.tags.distinct
   end
 
   def bookmark

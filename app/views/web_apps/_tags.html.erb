@@ -3,7 +3,7 @@
     <% if @web_app.user_tags(current_user).include?(tag) %>
       <div class="badge badge-secondary"><%= tag.name %></div>
     <% else %>
-      <div class="badge badge-primary"><%= tag.name %></div>
+      <div class="badge"><%= tag.name %></div>
     <% end %>
   <% end %>
 <% else %>
