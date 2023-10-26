@@ -15,6 +15,7 @@ class ReviewsController < ApplicationController
       @web_app.save_tag(tag_names, current_user)
       flash.now.notice = t('defaults.message.registed', item: Review.model_name.human)
     else
+      @tag_list = tag_names.join(',')
       flash.now[:danger] = t('defaults.message.not_registed', item: Review.model_name.human)
       render :edit, status: :unprocessable_entity
     end
@@ -30,6 +31,7 @@ class ReviewsController < ApplicationController
       @web_app.save_tag(tag_names, current_user)
       flash.now.notice = t('defaults.message.updated', item: Review.model_name.human)
     else
+      @tag_list = tag_names.join(',')
       flash.now[:danger] = t('defaults.message.not_updated', item: Review.model_name.human)
       render :edit, status: :unprocessable_entity
     end
@@ -39,6 +41,7 @@ class ReviewsController < ApplicationController
 
   def set_web_app
     @web_app = WebApp.find(params[:web_app_id])
+    @unique_tags = @web_app.tags.distinct
   end
 
   def set_review
