@@ -35,4 +35,8 @@ class WebApp < ApplicationRecord
       Tagmap.create(web_app_id: self.id, tag_id: web_app_tag.id, user_id: user.id)
     end
   end
+
+  def user_tags(user)
+    tags.where(tagmaps: { user_id: user.id })
+  end
 end

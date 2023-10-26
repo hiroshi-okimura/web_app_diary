@@ -1,6 +1,10 @@
 <% if unique_tags.present? %>
   <% unique_tags.each do |tag| %>
-    <div class="badge badge-primary"><%= tag.name %></div>
+    <% if @web_app.user_tags(current_user).include?(tag) %>
+      <div class="badge badge-secondary"><%= tag.name %></div>
+    <% else %>
+      <div class="badge badge-primary"><%= tag.name %></div>
+    <% end %>
   <% end %>
 <% else %>
   <p class="px-8 text-gray-400 text-xs md:text-base">まだこのWebアプリに登録されているタグはありません。</p>
