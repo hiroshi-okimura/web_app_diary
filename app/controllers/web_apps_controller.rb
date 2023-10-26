@@ -3,7 +3,12 @@ class WebAppsController < ApplicationController
   before_action :set_review, only: %i[show todayapp], if: :user_signed_in?
 
   def index
-    @web_apps = WebApp.where('offer_date <= ?', Date.today).order(offer_date: :desc).page(params[:page])
+    @web_apps = WebApp.where('offer_date <= ?', Date.today).includes(:tags).order(offer_date: :desc).page(params[:page])
+    if user_signed_in?
+      @user_tags = current_user.tagmaps.includes(:tag).group_by(&:web_app_id).transform_values { |v| v.map(&:tag) }
+    end
+    reviewed_web_app_ids = current_user.reviews.pluck(:web_app_id)
+    @reviewed_web_app_ids = reviewed_web_app_ids.to_set
   end
 
   def show; end
