@@ -1,9 +1,13 @@
 <% if unique_tags.present? %>
   <% unique_tags.each do |tag| %>
-    <% if @web_app.user_tags(current_user).include?(tag) %>
-      <div class="badge badge-secondary"><%= tag.name %></div>
+    <% if user_signed_in? && @web_app.user_tags(current_user).include?(tag) %>
+      <div class="badge badge-secondary">
+        <%= link_to tag.name, web_apps_path(tag_id: tag.id) %>
+      </div>
     <% else %>
-      <div class="badge badge-outline"><%= tag.name %></div>
+      <div class="badge badge-outline">
+        <%= link_to tag.name, web_apps_path(tag_id: tag.id) %>
+      </div>
     <% end %>
   <% end %>
 <% else %>

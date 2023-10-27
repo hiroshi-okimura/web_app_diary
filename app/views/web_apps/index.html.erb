@@ -3,16 +3,18 @@
     <!-- text - start -->
     <div class="mb-10 md:mb-16">
       <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">Webアプリ一覧</h2>
-
       <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg"><%= "#{Date.today}より以前に提供されたWebアプリの一覧です。"%></p>
     </div>
     <!-- text - end -->
 
     <%= turbo_frame_tag 'web_apps' do %>
+      <% if @tag.present? %>
+      <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg mb-6">
+      <span class="badge badge-ghost"><%= @tag.name %></span> タグがついたWebアプリ
+    </p>
+      <% end %>
       <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
-
         <%= render @web_apps %>
-
       </div>
       <div class="text-center mt-8 md:text-xl">
         <%= paginate @web_apps %>
