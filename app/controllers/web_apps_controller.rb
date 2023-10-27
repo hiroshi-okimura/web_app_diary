@@ -1,6 +1,7 @@
 class WebAppsController < ApplicationController
   before_action :set_web_app, only: %i[show todayapp]
   before_action :set_review, only: %i[show todayapp], if: :user_signed_in?
+  before_action :authenticate_user!, only: %i[my_tags]
 
   def index
     if params[:tag_id]
@@ -24,6 +25,18 @@ class WebAppsController < ApplicationController
   def show; end
 
   def todayapp; end
+
+  def my_tags
+    @tag = Tag.find(params[:tag_id])
+    @web_apps = @tag.web_apps
+                    .where(tagmaps: { user_id: current_user.id })
+                    .includes(:tags)
+                    .order(offer_date: :desc)
+                    .page(params[:page])
+    @my_tags = current_user.tags.distinct
+    reviewed_web_app_ids = current_user.reviews.pluck(:web_app_id)
+    @reviewed_web_app_ids = reviewed_web_app_ids.to_set
+  end
 
   private
 

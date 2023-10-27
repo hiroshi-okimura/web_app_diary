@@ -11,14 +11,24 @@
 
       <div class="mb-2">
         <% web_app.tags.uniq.each do |tag| %>
-          <% if user_signed_in? && (@user_tags[web_app.id] || []).include?(tag) %>
+          <% if request.path.start_with?("/web_apps/my_tags")  %>
             <div class="badge badge-secondary">
-              <%= link_to tag.name, web_apps_path(tag_id: tag.id) %>
+              <%= link_to tag.name, my_tags_web_apps_path(tag_id: tag.id) %>
+            </div>
+          <% elsif request.path.start_with?("/mypage/bookmark") %>
+            <div class="badge badge-secondary">
+              <%= link_to tag.name, web_apps_path(tag_id: tag.id), data: { turbo: false } %>
             </div>
           <% else %>
-            <div class="badge badge-ghost">
-              <%= link_to tag.name, web_apps_path(tag_id: tag.id) %>
-            </div>
+            <% if user_signed_in? && (@user_tags[web_app.id] || []).include?(tag) %>
+              <div class="badge badge-secondary">
+                <%= link_to tag.name, web_apps_path(tag_id: tag.id) %>
+              </div>
+            <% else %>
+              <div class="badge badge-ghost">
+                <%= link_to tag.name, web_apps_path(tag_id: tag.id) %>
+              </div>
+            <% end %>
           <% end %>
         <% end %>
       </div>
