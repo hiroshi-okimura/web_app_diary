@@ -10,6 +10,7 @@ ja:
       user: 'ユーザー'
       web_app: 'Webアプリ'
       review: 'レビュー'
+      tag: 'タグ'
     attributes:
       user:
         id: 'ID'
@@ -37,3 +38,6 @@ ja:
         design_score: 'デザインスコア'
         is_counted: 'カウント'
         bookmark: 'ブックマーク'
+      tag:
+        name: 'タグ名'
+        id: 'ID'

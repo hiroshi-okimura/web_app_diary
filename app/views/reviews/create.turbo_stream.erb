@@ -6,4 +6,5 @@
   <%= turbo_stream.append "comments", partial: "web_apps/comment", locals: { review: @review } %>
   <%= turbo_stream.remove "no-comments-message" %>
 <% end %>
+<%= turbo_stream.update "tags", partial: "web_apps/tags", locals: { unique_tags: @unique_tags } %>
 <%= turbo_stream.append "toast", partial: "shared/toast" %>

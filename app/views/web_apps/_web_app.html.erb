@@ -7,11 +7,32 @@
     <div class="flex flex-1 flex-col p-4 sm:p-6">
       <h2 class="mb-2 text-lg font-semibold text-gray-800">
         <%= link_to web_app.site_name, web_app.url, target: "_blank", class: "transition duration-100 hover:text-indigo-500 active:text-indigo-600" %>
-        <% if web_app.offer_date == Date.today %>
-          <div class="badge badge-secondary ml-2">NEW</div>
-        <% end %>
       </h2>
 
+      <div class="mb-2">
+        <% web_app.tags.uniq.each do |tag| %>
+          <% if request.path.start_with?("/web_apps/my_tags")  %>
+            <div class="badge badge-secondary">
+              <%= link_to tag.name, my_tags_web_apps_path(tag_id: tag.id) %>
+            </div>
+          <% elsif request.path.start_with?("/mypage/bookmark") %>
+            <div class="badge badge-secondary">
+              <%= link_to tag.name, web_apps_path(tag_id: tag.id), data: { turbo: false } %>
+            </div>
+          <% else %>
+            <% if user_signed_in? && (@user_tags[web_app.id] || []).include?(tag) %>
+              <div class="badge badge-secondary">
+                <%= link_to tag.name, web_apps_path(tag_id: tag.id) %>
+              </div>
+            <% else %>
+              <div class="badge badge-ghost">
+                <%= link_to tag.name, web_apps_path(tag_id: tag.id) %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      
       <p class="mb-8 text-gray-500"><%= web_app.ogp_description %></p>
 
       <div class="mt-auto flex items-end justify-between">
@@ -26,7 +47,7 @@
           </div>
         </div>
         <% if user_signed_in? %>
-          <% if web_app.reviews.exists?(user_id: current_user.id) %>
+          <% if @reviewed_web_app_ids.include?(web_app.id) %>
             <span class="rounded border px-2 py-1 text-sm text-gray-500">reviewed</span>
           <% else %>
             <span class="rounded border px-2 py-1 text-sm text-red-500 bg-red-200">not review</span>

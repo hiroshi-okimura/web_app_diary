@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :web_apps, only: %i[index show] do
     collection do
       get :todayapp
+      get :my_tags
     end
 
     resources :reviews, only: %i[new create edit update]

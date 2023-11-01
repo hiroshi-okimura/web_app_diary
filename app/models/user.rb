@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_web_apps, through: :bookmarks, source: :web_app
+  has_many :tagmaps, dependent: :destroy
+  has_many :tags, through: :tagmaps
 
   enum role: { general: 0, admin: 1, guest: 2 }
 
