@@ -4,7 +4,7 @@ namespace :web_apps do
     # 今日の日付から150日前の日付を取得
     target_date = Date.today - 150.days
 
-    # 100日前に提供されたアプリを探す
+    # 150日前に提供されたアプリを探す
     web_app_to_update = WebApp.find_by(offer_date: target_date)
 
     # 今あるweb_appの中で、一番遠くの日付を取得
